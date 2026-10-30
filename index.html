@@ -1,0 +1,1360 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  Демо-версия сайта для студии массажа и красоты «ДО Мурашек» (Одинцово).
+  Разработка — Денис Стрепенюк, +7 977 393-80-33.
+  Сделано по открытым данным: Яндекс Карты (цены, фото, отзывы, новости), онлайн-запись YCLIENTS, Telegram-канал студии.
+-->
+<title>ДО Мурашек — студия массажа и красоты в Одинцово (демо)</title>
+<meta name="description" content="Ручной и аппаратный массаж, RF-лифтинг, спа-программы, косметология и солярий в ЖК «Одинцово-1», Берёзовая ул., 6 к1. Ежедневно 10:00–22:00. Онлайн-запись.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Денис Стрепенюк, +7 977 393-80-33">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ДО Мурашек — новый сайт студии (демо-версия)">
+<meta property="og:description" content="Подбор процедур по зоне тела, счастливые часы, сертификаты и запись онлайн. Разработка — Денис Стрепенюк.">
+<meta property="og:image" content="https://mafssadd.github.io/domurashek/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231C1916'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23fff'%3E%D0%94%D0%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --card:#F5F3F0; --card-2:#ECE7E1; --line:#E5DED6;
+  --ink:#1C1916; --ink-2:#6B635B;
+  --cocoa:#7A5038; --cocoa-deep:#5A3A28; --cocoa-soft:#EFE3D8;
+  --olive:#6A7450; --green:#2E4634; --glow:#E9B37C; --sand:#F4EDE5;
+  --r:20px;
+  --f:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --stick:80px; --barh:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--cocoa);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label{font:500 12px/1.2 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin:0 0 14px}
+h1,h2,h3,h4{margin:0;font-weight:900;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:clamp(34px,4.6vw,58px)}
+h3{font-size:clamp(24px,2.2vw,30px);letter-spacing:-.02em}
+h1 em,h2 em,h3 em{font:italic 400 1.05em/1 var(--f-serif);letter-spacing:-.01em;color:var(--cocoa)}
+.sub{font-weight:300;font-size:clamp(17px,1.5vw,20px);line-height:1.45;color:var(--ink-2);max-width:640px;margin:16px 0 0}
+.sec{padding-top:clamp(64px,8vw,112px)}
+.sec-head{margin-bottom:clamp(26px,3.4vw,44px)}
+.fine{font-size:13px;line-height:1.45;color:var(--ink-2);margin:14px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:999px;font:500 16px/1.1 var(--f);text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);transition:background .2s,color .2s,border-color .2s;text-align:center}
+.btn:hover{background:var(--ink);color:#fff}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--cocoa);border-color:var(--cocoa)}
+.btn-light{border-color:#fff;color:#fff}
+.btn-light:hover{background:#fff;color:var(--ink)}
+.btn-sm{min-height:40px;padding:8px 18px;font-size:14.5px}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- водяные знаки ---------- */
+.wm-layer{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='430'%3E%3Ctext x='340' y='222' text-anchor='middle' transform='rotate(-24 340 215)' font-family='Arial,sans-serif' font-size='22' font-weight='700' letter-spacing='3' fill='%237A5038'%3E%D0%94%D0%95%D0%9C%D0%9E-%D0%92%D0%95%D0%A0%D0%A1%D0%98%D0%AF %E2%80%94 %D0%94%D0%95%D0%9D%D0%98%D0%A1 %D0%A1%D0%A2%D0%A0%D0%95%D0%9F%D0%95%D0%9D%D0%AE%D0%9A%3C/text%3E%3C/svg%3E");
+  background-size:680px 430px}
+.seal{position:fixed;left:10px;bottom:14px;z-index:61;width:84px;height:84px;pointer-events:none;opacity:.45;transform:rotate(-12deg);display:none}
+@media (min-width:1100px){.seal{display:block}}
+.ph{position:relative;margin:0;overflow:hidden;background:var(--card-2)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph::after{content:"демо — Д. Стрепенюк";position:absolute;right:10px;bottom:8px;font:500 10px/1 var(--f);letter-spacing:.05em;color:#fff;opacity:.75;text-shadow:0 1px 3px rgba(0,0,0,.6);pointer-events:none}
+.calc-stamp{position:absolute;right:16px;top:16px;border:1.5px solid currentColor;color:rgba(233,179,124,.75);font:500 9px/1.2 var(--f);letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;border-radius:6px;transform:rotate(6deg);text-align:center;pointer-events:none}
+
+/* ---------- плашка демо и режим владельца ---------- */
+.demo-bar{position:relative;z-index:76;background:var(--ink);color:#CFC6BD;font-size:12.5px;line-height:1.35}
+.demo-bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:6px 16px;padding:7px 0;flex-wrap:wrap}
+.demo-bar b{color:#fff;font-weight:500}
+.demo-bar .short{display:none}
+.demo-bar a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);white-space:nowrap}
+.owner-toggle{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:3px 11px 3px 4px;color:#fff;font-size:12.5px;font-weight:500}
+.owner-toggle .sw{width:30px;height:18px;border-radius:999px;background:rgba(255,255,255,.22);position:relative;transition:background .2s}
+.owner-toggle .sw::after{content:"";position:absolute;left:3px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;transition:transform .2s}
+body.owner .owner-toggle .sw{background:#E2B93B}
+body.owner .owner-toggle .sw::after{transform:translateX(12px)}
+.owner-note{display:none;position:relative;background:#FFF5D1;color:#3B2E12;border-radius:6px 6px 16px 6px;padding:15px 18px 15px 50px;margin:0 0 26px;max-width:680px;font-size:15px;line-height:1.5;box-shadow:0 10px 26px rgba(60,40,10,.12),0 0 0 1px rgba(170,130,40,.18);transform:rotate(-.5deg)}
+.owner-note::before{content:"₽";position:absolute;left:14px;top:14px;width:24px;height:24px;border-radius:50%;background:#E2B93B;color:#3B2E12;font:700 14px/24px var(--f);text-align:center}
+.owner-note b{font-weight:700}
+.owner-note .on-t{display:block;font:700 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:#9C7A1E;margin-bottom:6px}
+body.owner .owner-note{display:block}
+
+/* ---------- шапка ---------- */
+.hdr{position:sticky;top:0;z-index:75;background:rgba(255,255,255,.93);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.hdr.scrolled{border-bottom-color:var(--line)}
+.hdr-in{display:flex;align-items:center;gap:26px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo-dm{font:400 32px/1 var(--f-serif);letter-spacing:-.03em}
+.logo-t{font:300 11px/1.15 var(--f);letter-spacing:.28em}
+.hdr-nav{display:flex;gap:24px}
+.hdr-nav a{text-decoration:none;font-size:15px;color:var(--ink-2);transition:color .2s}
+.hdr-nav a:hover,.hdr-nav a.on{color:var(--ink)}
+.hdr-phone{font-weight:500;font-size:15px;text-decoration:none;white-space:nowrap}
+.strip{display:none}
+.strip a{flex:0 0 auto;padding:7px 14px;border-radius:999px;background:var(--card);font-size:14px;line-height:1.2;text-decoration:none;color:var(--ink-2);transition:background .2s,color .2s}
+.strip a.on{background:var(--ink);color:#fff}
+
+/* ---------- первый экран ---------- */
+.hero{padding-top:14px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:14px;height:clamp(540px,calc(100svh - 196px),740px)}
+.hero-card{position:relative;background:var(--sand);border-radius:var(--r);padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate;touch-action:pan-y}
+.hero-card canvas{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero h1{font-size:clamp(44px,5vw,76px);line-height:.98}
+.hero h1 em{display:block;margin-top:.04em}
+.lead{font-weight:300;font-size:clamp(17px,1.45vw,20px);line-height:1.45;margin:20px 0 0;color:#3D3530;max-width:470px}
+.status{display:flex;gap:10px;align-items:flex-start;margin:22px 0 0;font-weight:500;font-size:15.5px;line-height:1.35}
+.status .dot{flex:0 0 10px;height:10px;border-radius:50%;margin-top:5px;background:#A39A90}
+.status.open .dot{background:#4F8A5B;box-shadow:0 0 0 4px rgba(79,138,91,.16)}
+.status.hh .dot{background:var(--cocoa);box-shadow:0 0 0 4px rgba(122,80,56,.2);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(122,80,56,.06)}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.hero-cta .btn{padding-inline:20px;font-size:15.5px}
+.rating{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:14px;color:var(--ink-2);text-decoration:none}
+.rating b{color:var(--cocoa);font-weight:700}
+.bump-hint{position:absolute;top:24px;right:26px;font:italic 400 15px/1.2 var(--f-serif);color:var(--cocoa);opacity:.8;pointer-events:none;transition:opacity .6s}
+.bump-hint.gone{opacity:0}
+.hero-slider{position:relative;border-radius:var(--r);overflow:hidden;background:#D9CFC5}
+.slides{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;height:100%;scroll-snap-align:start}
+.slide figcaption{position:absolute;left:16px;top:16px;background:rgba(255,255,255,.9);color:var(--ink);font-size:13px;padding:5px 12px;border-radius:999px}
+.dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:8px}
+.dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:rgba(255,255,255,.6);transition:width .3s,background .3s}
+.dots button[aria-current="true"]{background:#fff;width:26px}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:12px}
+.tile{position:relative;background:var(--card);border-radius:16px;padding:16px 18px;text-decoration:none;display:flex;flex-direction:column;gap:4px;min-height:94px;transition:background .2s}
+.tile:hover{background:var(--card-2)}
+.tile span{font-size:13.5px;color:var(--ink-2)}
+.tile b{font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.15}
+.tile b i{font-style:normal;color:var(--cocoa)}
+.tile::after{content:"→";position:absolute;right:16px;top:14px;color:var(--ink-2);font-size:14px}
+
+/* ---------- подбор по зоне ---------- */
+.pod{display:grid;grid-template-columns:380px minmax(0,1fr) 340px;gap:14px;align-items:start}
+.pod-map{background:var(--card);border-radius:var(--r);padding:20px}
+.seg{display:inline-flex;background:#fff;border-radius:999px;padding:4px;gap:2px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:8px 16px;font-weight:500;font-size:14.5px;color:var(--ink-2);transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.map-in{display:grid;grid-template-columns:136px 1fr;gap:12px;margin-top:16px}
+.fig{width:100%;height:auto;display:block;overflow:visible}
+.fig-body{fill:#EADFD3}
+.z-tint{fill:#DCC5B1;transition:fill .3s}
+.hit{fill:transparent;cursor:pointer;transition:fill .2s}
+.hit:hover{fill:rgba(122,80,56,.12)}
+.zlines path{stroke:#fff;stroke-width:1.4;stroke-dasharray:2 3;fill:none}
+.zbtns{display:flex;flex-direction:column;justify-content:space-between;gap:6px}
+.zbtn{display:flex;justify-content:space-between;align-items:baseline;gap:6px;text-align:left;border:0;background:#fff;border-radius:12px;padding:8px 11px;font-size:14.5px;font-weight:500;line-height:1.2;transition:background .2s,color .2s}
+.zbtn small{font-weight:400;font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+.zbtn:hover{background:var(--cocoa-soft)}
+.zbtn[aria-pressed="true"]{background:var(--ink);color:#fff}
+.zbtn[aria-pressed="true"] small{color:#D8CFC6}
+.pod-list{background:var(--card);border-radius:var(--r);padding:22px 22px 14px}
+.pl-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pl-head h3 em{font-size:1.08em}
+.pl-head span{font-size:14px;color:var(--ink-2)}
+.grp{margin-top:18px}
+.grp h4{font:500 12px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin:0 0 4px}
+.proc{display:grid;grid-template-columns:minmax(0,1fr) auto 40px;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.proc:first-of-type{border-top:0}
+.proc b{font-weight:500;font-size:16px;line-height:1.25;display:block}
+.proc span{font-size:13px;color:var(--ink-2);line-height:1.35;display:block;margin-top:2px}
+.proc .pr{font-weight:700;font-size:17px;white-space:nowrap}
+.add{width:40px;height:40px;border-radius:50%;border:1px solid var(--ink);background:#fff;display:grid;place-items:center;padding:0;transition:background .2s,border-color .2s,color .2s}
+.add svg{width:16px;height:16px}
+.add:hover{background:var(--cocoa-soft)}
+.add[aria-pressed="true"]{background:var(--cocoa);border-color:var(--cocoa);color:#fff}
+.consult{margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+.prog{position:sticky;top:calc(var(--stick) + 14px);background:var(--ink);color:#EFE8E1;border-radius:var(--r);padding:24px}
+.prog .label{color:var(--glow)}
+.prog h3{color:#fff;font-size:26px}
+.prog ul{list-style:none;margin:16px 0 0;padding:0}
+.prog li{display:grid;grid-template-columns:minmax(0,1fr) auto 26px;gap:8px;align-items:start;padding:9px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;line-height:1.3}
+.prog li.empty{display:block;color:#A99F95;border-top:0}
+.prog li b{font-weight:500;white-space:nowrap}
+.prog li button{border:0;background:none;color:#A99F95;padding:0;width:26px;height:22px;font-size:18px;line-height:1}
+.prog li button:hover{color:#fff}
+.when{margin-top:16px}
+.when>span{display:block;font-size:13px;color:#A99F95;margin-bottom:8px}
+.when .chips{display:flex;flex-wrap:wrap;gap:6px}
+.when .chip{border:1px solid rgba(255,255,255,.22);background:transparent;color:#EFE8E1;border-radius:999px;padding:6px 12px;font-size:13.5px}
+.when .chip[aria-pressed="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.sum{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.sum span{font-size:14px;color:#A99F95}
+.sum b{font-size:30px;font-weight:900;letter-spacing:-.02em;color:#fff}
+.sum-meta{font-size:13.5px;color:#C8BEB4;margin:4px 0 0;min-height:1.3em}
+.sum-meta i{font-style:normal;color:var(--glow)}
+.prog .btn{width:100%;margin-top:10px}
+.prog .btn-line{border-color:rgba(255,255,255,.4);color:#fff}
+.prog .btn-line:hover{background:#fff;color:var(--ink)}
+.prog .fine{color:#968C82}
+.ppill{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,16px);opacity:0;pointer-events:none;z-index:79;background:var(--cocoa);color:#fff;border-radius:999px;padding:11px 20px;font-weight:500;font-size:14.5px;text-decoration:none;box-shadow:0 12px 30px -10px rgba(60,30,15,.55);transition:opacity .25s,transform .25s;white-space:nowrap}
+.ppill.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+
+/* ---------- счастливые часы ---------- */
+.happy{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:center;background:var(--card);border-radius:var(--r);padding:clamp(24px,3.6vw,52px)}
+.happy p{margin:14px 0 0;font-weight:300;font-size:18px;line-height:1.45;color:#3D3530}
+.hh-now{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-weight:500;font-size:16px}
+.hh-now .dot{flex:0 0 10px;height:10px;border-radius:50%;margin-top:6px;background:#A39A90}
+.hh-now.on .dot{background:var(--cocoa);box-shadow:0 0 0 4px rgba(122,80,56,.2);animation:pulse 2.2s infinite}
+.happy .btn{margin-top:22px}
+.hh-bars{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(4px,.8vw,10px);height:220px;padding-top:30px}
+.hh-bar{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-width:0}
+.hh-bar i{display:block;flex:1;border-radius:4px;background:repeating-linear-gradient(to top,#D9D0C6 0 2px,transparent 2px 6px)}
+.hh-bar.hh i{background:repeating-linear-gradient(to top,var(--cocoa) 0 2px,transparent 2px 6px)}
+.hh-bar span{font-size:12px;color:var(--ink-2);text-align:center;margin-top:8px}
+.hh-bar.now::before{content:"сейчас";position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-size:11px;background:var(--ink);color:#fff;padding:3px 7px;border-radius:999px;white-space:nowrap}
+.hh-bar.now i{box-shadow:0 0 0 2px var(--ink)}
+.hh-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.hh-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:repeating-linear-gradient(to top,#D9D0C6 0 2px,transparent 2px 4px)}
+.hh-legend .c i{background:repeating-linear-gradient(to top,var(--cocoa) 0 2px,transparent 2px 4px)}
+
+/* ---------- спа / солярий / лицо ---------- */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+.bx{background:var(--card);border-radius:var(--r);overflow:hidden;position:relative}
+.b-spa{grid-column:span 7;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.b-sun{grid-column:span 5;background:var(--green);color:#F1EEE6}
+.b-face{grid-column:span 6;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.b-more{grid-column:span 6}
+.bx-in{padding:clamp(22px,2.4vw,32px)}
+.bx .ph{min-height:100%}
+.prg{border-top:1px solid var(--line);padding:16px 0}
+.prg:first-of-type{margin-top:14px}
+.prg-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.prg-top b{font:italic 400 24px/1.1 var(--f-serif)}
+.prg-top strong{font-weight:900;font-size:22px;color:var(--cocoa);white-space:nowrap}
+.prg p{margin:6px 0 0;font-size:14.5px;color:var(--ink-2);line-height:1.45}
+.prg q{display:block;margin-top:8px;font:italic 400 15px/1.4 var(--f-serif);color:var(--ink)}
+.addline{display:inline-flex;align-items:center;gap:8px;margin-top:10px;border:1px solid var(--ink);background:transparent;border-radius:999px;padding:6px 14px 6px 8px;font-size:14px;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.addline svg{width:14px;height:14px}
+.addline[aria-pressed="true"]{background:var(--cocoa);border-color:var(--cocoa);color:#fff}
+.b-more ul,.b-face ul{list-style:none;margin:14px 0 0;padding:0}
+.b-more li,.b-face li{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:11px 0;font-size:15px;line-height:1.35}
+.b-more li span,.b-face li span{color:var(--ink-2);text-align:right}
+.b-face li b,.b-more li b{font-weight:500}
+.b-face li strong{font-weight:700;white-space:nowrap}
+.sun-ph{height:190px;border-radius:14px;margin:18px 0 0}
+.b-sun h3{color:#fff}
+.b-sun .label{color:#C9C59F}
+.b-sun p{margin:10px 0 0;color:#D9D6CB;font-size:15px;line-height:1.45}
+.sun-bars{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:150px;margin-top:20px}
+.sun-bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;height:100%;border:0;background:none;padding:0;color:#D9D6CB}
+.sun-bar i{display:block;border-radius:6px 6px 3px 3px;background:repeating-linear-gradient(to top,rgba(255,255,255,.35) 0 2px,transparent 2px 5px);transition:background .2s}
+.sun-bar span{font-size:13px;margin-top:6px}
+.sun-bar[aria-pressed="true"]{color:#fff}
+.sun-bar[aria-pressed="true"] i{background:repeating-linear-gradient(to top,var(--glow) 0 2px,transparent 2px 5px)}
+.sun-out{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.sun-out b{font-size:28px;font-weight:900;color:#fff}
+.sun-ex{display:flex;flex-direction:column;gap:6px;margin-top:12px;font-size:14.5px;color:#D9D6CB}
+.sun-ex label{display:flex;gap:10px;align-items:center;cursor:pointer}
+.sun-ex input{width:18px;height:18px;accent-color:var(--glow)}
+.b-sun .btn{margin-top:18px;width:100%}
+
+/* ---------- мастера и отзывы ---------- */
+.team{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:14px}
+.master{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:var(--card);border-radius:var(--r);overflow:hidden}
+.master-in{padding:clamp(22px,2.6vw,34px)}
+.master h3{font-size:clamp(28px,2.6vw,36px)}
+.master>div>p:not(.label){margin:10px 0 0;font-size:16px;color:var(--ink-2)}
+.master>div>p b{color:var(--cocoa);font-weight:700}
+.mq{border-top:1px solid var(--line);padding:13px 0 0;margin-top:13px}
+.mq b{display:block;font-weight:500;font-size:15px}
+.mq q{display:block;margin-top:4px;font:italic 400 17px/1.4 var(--f-serif)}
+.mq small{display:block;margin-top:3px;font-size:12.5px;color:var(--ink-2)}
+.side{display:grid;gap:14px;align-content:start}
+.crew,.stats{background:var(--card);border-radius:var(--r);padding:clamp(20px,2.4vw,28px)}
+.crew ul{list-style:none;margin:12px 0 0;padding:0}
+.crew li{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:10px 0;font-size:15px}
+.crew li span{color:var(--ink-2);text-align:right}
+.stats-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.stats-top b{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--cocoa)}
+.stats-top span{font-size:14px;color:var(--ink-2)}
+.stat{display:grid;grid-template-columns:120px minmax(0,1fr) 92px;gap:10px;align-items:center;margin-top:10px;font-size:14px}
+.stat i{display:block;height:16px;border-radius:3px;background:repeating-linear-gradient(90deg,var(--cocoa) 0 2px,transparent 2px 5px)}
+.stat span:last-child{color:var(--ink-2);text-align:right;white-space:nowrap}
+.revs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:14px;padding-bottom:4px}
+.revs::-webkit-scrollbar{display:none}
+.rev{flex:0 0 min(410px,84%);scroll-snap-align:start;background:var(--card);border-radius:var(--r);padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;justify-content:space-between;gap:20px;margin:0}
+.rev blockquote{margin:0;font:italic 400 clamp(19px,1.7vw,23px)/1.38 var(--f-serif)}
+.rev blockquote::before{content:"«"}
+.rev blockquote::after{content:"»"}
+.rev figcaption{font-size:14px;color:var(--ink-2)}
+.rev figcaption b{color:var(--ink);font-weight:500}
+.revs-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.revs-nav .arrows{display:flex;gap:8px}
+.revs-nav .arrows button{width:46px;height:46px;border-radius:50%;border:1px solid var(--ink);background:#fff;font-size:18px}
+.revs-nav .arrows button:hover{background:var(--ink);color:#fff}
+.revs-nav a{font-weight:500;font-size:15px}
+
+/* ---------- атмосфера ---------- */
+.place{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:210px;gap:14px}
+.place .ph{border-radius:var(--r);cursor:zoom-in;border:0;padding:0;width:100%;height:100%}
+.place .ph figcaption{position:absolute;left:14px;bottom:12px;color:#fff;font-size:13px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.p-a{grid-column:span 6;grid-row:span 2}
+.p-b{grid-column:span 3;grid-row:span 2}
+.p-c,.p-d,.p-f,.p-g{grid-column:span 3}
+.p-text{grid-column:span 6;background:var(--card);border-radius:var(--r);padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;justify-content:center}
+.p-text p{margin:0;font-weight:300;font-size:18px;line-height:1.45}
+.feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.feats span{background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px}
+
+/* ---------- сертификат ---------- */
+.gift{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:14px;align-items:start}
+.gift-form{background:var(--card);border-radius:var(--r);padding:clamp(20px,2.4vw,28px)}
+.fld{margin-top:18px}
+.fld:first-child{margin-top:0}
+.fld>span{display:block;font-size:13px;color:var(--ink-2);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:14.5px;line-height:1.2;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.inp{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 14px;font-size:16px;outline:0;transition:border-color .2s}
+.inp:focus{border-color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gift-prev{position:sticky;top:calc(var(--stick) + 14px)}
+.gift-prev canvas{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 30px 60px -32px rgba(40,25,15,.55)}
+.gift-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.gift-form .hidden{display:none}
+
+/* ---------- контакты ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:14px;align-items:start}
+.c-card{background:var(--card);border-radius:var(--r);padding:clamp(20px,2.6vw,32px)}
+.c-row{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:15.5px}
+.c-row:first-of-type{border-top:0;padding-top:0}
+.c-row>span{color:var(--ink-2);font-size:14px}
+.c-row a{text-decoration:none;border-bottom:1px solid var(--line)}
+.c-row a:hover{border-color:var(--ink)}
+.c-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.find{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
+.find .ph{height:170px;border-radius:14px;cursor:zoom-in;border:0;padding:0;width:100%}
+.find figcaption{position:absolute;left:8px;right:8px;top:8px;font-size:12px;line-height:1.25;background:rgba(255,255,255,.92);border-radius:8px;padding:4px 7px;text-align:left}
+.mapbox{margin-top:14px;border-radius:14px;overflow:hidden;height:72px;background:var(--card-2);display:grid;place-items:center;position:relative;transition:height .3s}
+.mapbox.on{height:300px}
+.mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;padding:18px 44px 18px 0;font-weight:500;font-size:17px;line-height:1.35;position:relative;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:12px;font-weight:300;font-size:28px;line-height:1;color:var(--cocoa)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0 0 18px;color:var(--ink-2);font-size:15.5px;line-height:1.5;max-width:560px}
+
+/* ---------- подвал ---------- */
+.offer{margin-top:clamp(56px,7vw,96px)}
+.offer .owner-note{max-width:none;transform:none}
+.foot{margin-top:clamp(64px,8vw,112px);border-top:1px solid var(--line);padding:clamp(36px,5vw,64px) 0 calc(36px + var(--barh))}
+.biglogo{position:relative;text-align:center;font:400 clamp(150px,40vw,440px)/.9 var(--f-serif);letter-spacing:-.04em;color:var(--ink);user-select:none;margin:0}
+.biglogo span{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font:300 clamp(15px,3.3vw,44px)/1 var(--f);letter-spacing:.32em;background:var(--bg);padding:.28em .1em .28em .42em;white-space:nowrap}
+.tagline{text-align:center;font-weight:300;font-size:clamp(14px,1.3vw,17px);color:var(--ink-2);margin:18px 0 0}
+.foot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(32px,4vw,56px);font-size:15px;line-height:1.6}
+.foot-grid h4{font:500 12px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin:0 0 12px}
+.foot-grid p{margin:0}
+.foot-grid a{text-decoration:none}
+.foot-grid a:hover{text-decoration:underline}
+.demo-note{margin-top:28px;padding:16px 18px;border:1px dashed var(--line);border-radius:14px;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.demo-note b{color:var(--ink);font-weight:500}
+
+/* ---------- нижняя панель (телефон) ---------- */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;grid-template-columns:1fr 1.25fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.mbar a{min-height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:500;font-size:14.5px;border:1px solid var(--ink)}
+.mbar a svg{width:17px;height:17px}
+.mbar .main{background:var(--ink);color:#fff}
+
+/* ---------- лайтбокс ---------- */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(20,16,13,.92);display:grid;place-items:center;padding:20px}
+.lb[hidden]{display:none}
+.lb figure{position:relative;margin:0;max-width:min(1100px,100%);max-height:100%}
+.lb img{max-height:calc(100svh - 110px);width:auto;max-width:100%;border-radius:14px;margin:0 auto}
+.lb figure::after{content:"демо — Д. Стрепенюк";position:absolute;right:12px;bottom:40px;font:500 12px/1 var(--f);color:#fff;opacity:.75;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+.lb figcaption{color:#EDE6DE;text-align:center;font-size:14px;margin-top:12px}
+.lb-x{position:absolute;right:14px;top:14px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:none;color:#fff;font-size:24px;line-height:1}
+
+/* ---------- адаптив ---------- */
+@media (max-width:1180px){
+  .pod{grid-template-columns:330px minmax(0,1fr)}
+  .prog{grid-column:1/-1;position:static}
+  .b-spa,.b-sun,.b-face,.b-more{grid-column:span 12}
+  .team{grid-template-columns:1fr}
+  .side{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1099px){
+  .hdr-nav{display:none}
+  .strip{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 16px 10px;margin-top:-4px}
+  .strip::-webkit-scrollbar{display:none}
+  html{scroll-padding-top:122px}
+  :root{--stick:118px}
+  .tiles{grid-template-columns:repeat(3,1fr)}
+  .gift,.contact{grid-template-columns:1fr}
+  .gift-prev{position:static;order:-1}
+  .place{grid-auto-rows:180px}
+}
+@media (max-width:759px){
+  body{font-size:15.5px}
+  :root{--barh:70px}
+  .demo-bar .long{display:none}
+  .hdr-in{height:58px;gap:10px}
+  .hdr-phone{display:none}
+  .logo-dm{font-size:28px}
+  .logo-t{font-size:10px;letter-spacing:.24em}
+  html{scroll-padding-top:112px}
+  :root{--stick:108px}
+  .hero{padding-top:8px}
+  .hero-grid{grid-template-columns:1fr;height:auto;gap:8px}
+  .hero-slider{order:-1;height:240px}
+  .hero-card{padding:22px 20px 20px;justify-content:flex-start}
+  .hero h1{font-size:44px}
+  .lead{margin-top:14px;font-size:16.5px}
+  .status{margin-top:16px;font-size:15px}
+  .hero-cta{margin-top:18px}
+  .hero-cta .btn{flex:1 1 auto;padding-inline:16px}
+  .bump-hint{position:static;display:block;order:10;margin-top:14px;font-size:14px}
+  .demo-bar .short{display:inline}
+  .demo-bar{font-size:12px}
+  .hero .label{font-size:11px;letter-spacing:.08em}
+  .hero-cta .btn:not(.btn-dark){display:none}
+  .hero-cta .btn-dark{width:100%}
+  .bento{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:10px;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
+  .bento::-webkit-scrollbar{display:none}
+  .bento .bx{flex:0 0 86%;scroll-snap-align:start}
+  .b-spa,.b-face{display:block}
+  .b-spa .ph,.b-face .ph,.sun-ph{display:none}
+  .master .ph{display:none}
+  .side{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:10px;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
+  .side::-webkit-scrollbar{display:none}
+  .side>*{flex:0 0 86%;scroll-snap-align:start}
+  .rating{margin-top:12px}
+  .tiles{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+  .tile{min-height:0;padding:12px 14px}
+  .tile b{font-size:17px}
+  .tile::after{right:12px;top:10px}
+  .pod{grid-template-columns:1fr}
+  .pod-map{padding:16px}
+  .map-in{grid-template-columns:124px 1fr}
+  .pod-list{padding:18px 16px 10px}
+  .proc{grid-template-columns:minmax(0,1fr) auto 38px;gap:10px}
+  .add{width:38px;height:38px}
+  .prog{padding:20px}
+  .happy{grid-template-columns:1fr}
+  .hh-bars{height:150px}
+  .hh-bar span{font-size:10.5px}
+  .master{grid-template-columns:1fr}
+  .stat{grid-template-columns:104px minmax(0,1fr) 84px}
+  .revs-nav .arrows{display:none}
+  .place{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:10px}
+  .place::-webkit-scrollbar{display:none}
+  .place .ph{flex:0 0 78%;height:300px;scroll-snap-align:start}
+  .p-text{flex:0 0 86%;scroll-snap-align:start;order:-1}
+  .c-row{grid-template-columns:92px minmax(0,1fr)}
+  .find .ph{height:130px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .foot-grid>div:last-child{display:none}
+  .mbar{display:grid}
+  .owner-note{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wm-layer" aria-hidden="true"></div>
+<svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+  <defs><path id="sealPath" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs>
+  <circle cx="60" cy="60" r="56" fill="none" stroke="#7A5038" stroke-width="2"/>
+  <circle cx="60" cy="60" r="36" fill="none" stroke="#7A5038" stroke-width="1"/>
+  <text font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1.6" fill="#7A5038"><textPath href="#sealPath">ДЕМО-ВЕРСИЯ ★ ДЕНИС СТРЕПЕНЮК ★</textPath></text>
+  <text x="60" y="68" text-anchor="middle" font-family="Georgia,serif" font-size="24" fill="#7A5038">ДМ</text>
+</svg>
+
+<div class="demo-bar">
+  <div class="wrap">
+    <span><span class="long">Демо-версия нового сайта для студии «ДО Мурашек» · Разработка — </span><span class="short">Демо-версия · </span><b>Денис Стрепенюк</b>, <a href="tel:+79773938033">+7 977 393-80-33</a></span>
+    <button class="owner-toggle" type="button" id="ownerToggle" aria-pressed="false"><span class="sw"></span>Режим владельца</button>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top" aria-label="ДО Мурашек — наверх"><span class="logo-dm">ДМ</span><span class="logo-t">ДО<br>МУРАШЕК</span></a>
+    <nav class="hdr-nav" aria-label="Разделы">
+      <a href="#podbor">Подбор</a><a href="#spa">Спа и солярий</a><a href="#otzyvy">Отзывы</a><a href="#gift">Сертификаты</a><a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="hdr-phone" href="tel:+79031002862">+7 903 100-28-62</a>
+    <a class="btn btn-dark btn-sm js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Записаться</a>
+  </div>
+  <nav class="strip" id="strip" aria-label="Разделы">
+    <a href="#podbor">Подбор</a><a href="#happy">Утро −500 ₽</a><a href="#spa">Спа</a><a href="#sun">Солярий</a><a href="#otzyvy">Мастера</a><a href="#place">Атмосфера</a><a href="#gift">Сертификат</a><a href="#kontakty">Контакты</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero wrap" aria-label="Студия ДО Мурашек">
+  <div class="owner-note" style="margin-top:14px"><span class="on-t">Режим владельца · как работает сайт</span>Жёлтые заметки видите только вы, гости их не увидят. Сайт собран на ваших ценах, фото, новостях и отзывах с Яндекс Карт. Главное: <b>все кнопки «Записаться» ведут в ваш YCLIENTS</b>, поэтому администратору ничего менять не нужно. Записи придут туда же, куда приходят сейчас.</div>
+  <div class="hero-grid">
+    <div class="hero-card" id="skin">
+      <canvas id="bumps" aria-hidden="true"></canvas>
+      <span class="bump-hint" id="bumpHint" aria-hidden="true">проведите пальцем — побегут мурашки</span>
+      <p class="label">Студия массажа и красоты · Одинцово</p>
+      <h1>Массаж <em>до&nbsp;мурашек</em></h1>
+      <p class="lead">Ручной и аппаратный массаж, RF-лифтинг, спа и&nbsp;солярий на первом этаже ЖК «Одинцово-1». Каждый день с&nbsp;10:00 до&nbsp;22:00.</p>
+      <p class="status" id="status"><i class="dot"></i><span>Ежедневно 10:00–22:00</span></p>
+      <div class="hero-cta">
+        <a class="btn btn-dark js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn" href="#podbor">Подобрать процедуру</a>
+      </div>
+      <a class="rating" href="https://yandex.ru/maps/org/do_murashek/168644738252/reviews/" target="_blank" rel="noopener"><b>★ 5,0</b> · 54 оценки на Яндекс Картах</a>
+    </div>
+    <div class="hero-slider">
+      <div class="slides" id="slides" tabindex="0" aria-label="Фото студии, листаются">
+        <figure class="ph slide"><img src="img/panel-1200.webp" srcset="img/panel-600.webp 600w, img/panel-1200.webp 1200w" sizes="(max-width:759px) 100vw, 58vw" alt="Кабинет: кушетка и панно с подсветкой" fetchpriority="high"><figcaption>Кабинет с панно</figcaption></figure>
+        <figure class="ph slide"><img src="img/room-1200.webp" srcset="img/room-600.webp 600w, img/room-1200.webp 960w" sizes="(max-width:759px) 100vw, 58vw" alt="Кабинет массажа со шторами" loading="lazy"><figcaption>Кабинет массажа</figcaption></figure>
+        <figure class="ph slide"><img src="img/lounge-1200.webp" srcset="img/lounge-600.webp 600w, img/lounge-1200.webp 960w" sizes="(max-width:759px) 100vw, 58vw" alt="Зона отдыха с диваном" loading="lazy"><figcaption>Зона отдыха</figcaption></figure>
+        <figure class="ph slide"><img src="img/plants-1200.webp" srcset="img/plants-600.webp 600w, img/plants-1200.webp 720w" sizes="(max-width:759px) 100vw, 58vw" alt="Растения и зеркало с подсветкой" loading="lazy"><figcaption>Растения в студии</figcaption></figure>
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+  <div class="tiles">
+    <a class="tile" href="#podbor"><span>Массаж</span><b>от <i>2 000 ₽</i></b></a>
+    <a class="tile" href="#happy"><span>Счастливые часы</span><b><i>−500 ₽</i> по утрам</b></a>
+    <a class="tile" href="#spa"><span>Спа-программы</span><b>от <i>7 000 ₽</i></b></a>
+    <a class="tile" href="#sun"><span>Солярий</span><b><i>50 ₽</i> за минуту</b></a>
+    <a class="tile" href="#gift"><span>Сертификаты</span><b>любой номинал</b></a>
+    <a class="tile js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener"><span>Запись онлайн</span><b>24/7, без звонка</b></a>
+  </div>
+</section>
+
+<section class="sec" id="podbor">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · подбор по зоне</span>Клиент не знает слов «кавитация» и «эндосфера», зато знает, где у него напряжение или что хочется подтянуть. Подбор по зоне превращает ваш прайс из 40 позиций в 3–5 понятных вариантов и <b>подсказывает вторую процедуру</b>: к массажу спины — RF-лифтинг спины за 2 500 ₽. Так растёт средний чек без всяких скидок. Цены — с ваших Карт и YCLIENTS.</div>
+    <div class="sec-head">
+      <p class="label">Подбор по зоне</p>
+      <h2>Где хочется <em>мурашек</em>?</h2>
+      <p class="sub">Нажмите на зону и увидите процедуры студии с ценами и временем. Добавьте нужные в программу и запишитесь.</p>
+    </div>
+    <div class="pod">
+      <div class="pod-map">
+        <div class="seg" role="group" aria-label="Для кого">
+          <button type="button" data-g="f" aria-pressed="true">Для неё</button>
+          <button type="button" data-g="m" aria-pressed="false">Для него</button>
+        </div>
+        <div class="map-in">
+          <svg class="fig" id="fig" viewBox="0 0 200 520" role="img" aria-label="Схема тела: нажмите на зону">
+            <defs>
+              <path id="half" d="M100,14 C113,14 123,25 123,41 C123,56 117,66 111,70 C110,75 110,80 111,85 C118,91 131,93 142,97 C152,101 158,111 159,125 C161,150 162,172 164,195 C166,220 170,244 171,264 C175,276 176,291 171,300 C167,305 160,301 159,293 C157,283 156,273 155,265 C152,241 149,218 146,197 C144,176 142,153 139,134 C137,133 135,133 134,134 C133,160 128,184 128,205 C128,226 138,242 140,264 C142,292 139,330 134,366 C132,381 133,396 134,411 C136,432 132,456 126,479 C125,489 131,497 129,503 C123,508 110,508 106,503 C104,495 108,487 108,479 C106,456 105,431 106,411 C107,396 106,381 105,366 C104,336 103,312 101,293 L100,290 Z"/>
+              <clipPath id="bodyClip"><use href="#half"/><use href="#half" transform="matrix(-1 0 0 1 200 0)"/></clipPath>
+              <rect id="z-face" x="70" y="8" width="60" height="64"/>
+              <rect id="z-neck" x="52" y="72" width="96" height="46"/>
+              <g id="z-arms"><rect x="141" y="118" width="45" height="190"/><rect x="14" y="118" width="45" height="190"/></g>
+              <rect id="z-back" x="59" y="118" width="82" height="84"/>
+              <rect id="z-belly" x="59" y="202" width="82" height="58"/>
+              <rect id="z-hips" x="55" y="260" width="90" height="90"/>
+              <rect id="z-legs" x="55" y="350" width="90" height="165"/>
+              <rect id="z-all" x="0" y="0" width="200" height="520"/>
+              <pattern id="bumpPat" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3.4" cy="3.7" r="1.2" fill="#7A5038" fill-opacity=".55"/><circle cx="2.9" cy="3.05" r=".8" fill="#fff" fill-opacity=".95"/></pattern>
+              <mask id="rip" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="520"><circle id="ripC" cx="100" cy="160" r="600" fill="#fff"/></mask>
+            </defs>
+            <g class="fig-body"><use href="#half"/><use href="#half" transform="matrix(-1 0 0 1 200 0)"/></g>
+            <g clip-path="url(#bodyClip)">
+              <use id="zTint" class="z-tint" href="#z-back" mask="url(#rip)"/>
+              <use id="zBump" href="#z-back" fill="url(#bumpPat)" mask="url(#rip)"/>
+              <g class="zlines"><path d="M60 72H140M52 118H148M55 202H145M55 260H145M55 350H145"/></g>
+              <use class="hit" href="#z-face" data-z="face"/>
+              <use class="hit" href="#z-neck" data-z="neck"/>
+              <use class="hit" href="#z-arms" data-z="arms"/>
+              <use class="hit" href="#z-back" data-z="back"/>
+              <use class="hit" href="#z-belly" data-z="belly"/>
+              <use class="hit" href="#z-hips" data-z="hips"/>
+              <use class="hit" href="#z-legs" data-z="legs"/>
+            </g>
+          </svg>
+          <div class="zbtns" id="zbtns"></div>
+        </div>
+      </div>
+      <div class="pod-list" id="podList" aria-live="polite"></div>
+      <aside class="prog" id="prog" aria-label="Ваша программа">
+        <span class="calc-stamp">демо-расчёт<br>Д. Стрепенюк</span>
+        <p class="label">Ваша программа</p>
+        <h3 id="progTitle">Пока пусто</h3>
+        <ul id="progList"><li class="empty">Добавьте процедуры кнопкой «+»: можно из разных зон.</li></ul>
+        <div class="when">
+          <span>Когда удобно прийти</span>
+          <div class="chips" id="when">
+            <button type="button" class="chip" data-w="hh" aria-pressed="false">Будни 10–13, −500 ₽</button>
+            <button type="button" class="chip" data-w="day" aria-pressed="false">Будни днём</button>
+            <button type="button" class="chip" data-w="eve" aria-pressed="false">Вечером</button>
+            <button type="button" class="chip" data-w="we" aria-pressed="false">Выходные</button>
+          </div>
+        </div>
+        <div class="sum"><span>Итого по прайсу</span><b id="progTotal">0 ₽</b></div>
+        <p class="sum-meta" id="progMeta"></p>
+        <a class="btn btn-light js-yc" style="background:#fff;color:var(--ink)" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn btn-line" id="progWA" href="https://wa.me/79031002862" target="_blank" rel="noopener">Отправить администратору в WhatsApp</a>
+        <p class="fine">Цены — с Яндекс Карт и онлайн-записи студии (обновлены 8 сентября). Курс и абонемент посчитает администратор.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="happy">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · счастливые часы</span>Утро будней — самые пустые часы почти у любого салона. Блок сам показывает «сейчас −500 ₽, осталось 1 ч 20 мин» именно тогда, когда скидка действует, и <b>помогает заполнить окна с 10 до 13</b>. Условия взяты из вашей новости на Картах от 9 сентября.</div>
+    <div class="happy">
+      <div>
+        <p class="label">Счастливые часы</p>
+        <h2>Утро будней — <em>на&nbsp;500&nbsp;₽</em> дешевле</h2>
+        <p>С понедельника по пятницу с 10:00 до 13:00 — скидка 500 ₽ на массаж. Например, общий массаж 60 минут для неё — 3 000 ₽ вместо 3 500 ₽.</p>
+        <div class="hh-now" id="hhNow"><i class="dot"></i><span>С понедельника по пятницу, 10:00–13:00</span></div>
+        <a class="btn btn-dark js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Записаться на утро</a>
+      </div>
+      <div>
+        <div class="hh-bars" id="hhBars" aria-hidden="true"></div>
+        <div class="hh-legend"><span class="c"><i></i>скидка 500 ₽ на массаж (будни)</span><span><i></i>обычный прайс</span></div>
+        <p class="fine">Акция — из новостей студии на Яндекс Картах. Условия лучше уточнить при записи.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="spa">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · спа и солярий</span>Спа-программы — ваш самый крупный чек (7 000 и 8 500 ₽), а на Картах они спрятаны в конце прайса. Здесь они на виду, и их можно <b>одной кнопкой добавить к программе</b>. Солярий считается по минутам прямо в карточке: 50 ₽ за минуту, как в вашем прайсе.</div>
+    <div class="sec-head">
+      <p class="label">Спа, солярий и уход</p>
+      <h2>Когда хочется <em>больше</em>, чем массаж</h2>
+    </div>
+    <div class="bento">
+      <article class="bx b-spa">
+        <figure class="ph"><img src="img/jug-600.webp" srcset="img/jug-600.webp 600w, img/jug-1200.webp 960w" sizes="(max-width:759px) 100vw, 25vw" alt="Кувшин воды с лимоном на мраморном столике" loading="lazy"></figure>
+        <div class="bx-in">
+          <p class="label">Спа-программы</p>
+          <h3>Два часа <em>для себя</em></h3>
+          <div class="prg">
+            <div class="prg-top"><b>«Сушка»</b><strong>7 000 ₽</strong></div>
+            <p>Лимфодренаж против отёков: массаж всего тела 60 минут и бандажное обёртывание ещё 60 минут.</p>
+            <q>Лёгкость невероятная! Обязательно вернусь ещё!</q>
+            <button type="button" class="addline" data-add="dry" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><span>В программу</span></button>
+          </div>
+          <div class="prg">
+            <div class="prg-top"><b>«Ламинария»</b><strong>8 500 ₽</strong></div>
+            <p>Антицеллюлитный массаж с кофейным скрабом и сушёной ламинарией: лимфодренаж, отшелушивание, кожа глаже.</p>
+            <button type="button" class="addline" data-add="lam" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><span>В программу</span></button>
+          </div>
+          <p class="fine">Обёртывания отдельно: бандажное — 3 000 ₽, с ламинарией — 2 500 ₽.</p>
+        </div>
+      </article>
+
+      <article class="bx b-sun" id="sun">
+        <div class="bx-in">
+          <p class="label">Солярий</p>
+          <h3>Загар <em style="color:var(--glow)">без отпуска</em></h3>
+          <p>Вертикальный солярий с виброплатформой. Выберите минуты и узнайте цену.</p>
+          <figure class="ph sun-ph"><img src="img/solar-600.webp" srcset="img/solar-600.webp 600w, img/solar-1200.webp 720w" sizes="(max-width:759px) 100vw, 40vw" alt="Вертикальный солярий в комнате с зелёными стенами" loading="lazy" style="object-position:50% 40%"></figure>
+          <div class="sun-bars" id="sunBars" role="group" aria-label="Минуты загара"></div>
+          <div class="sun-ex">
+            <label><input type="checkbox" id="sunSt"> Стикини и одноразовая шапочка, +60 ₽</label>
+            <label><input type="checkbox" id="sunCr"> Бронзатор, крем-активатор, +250 ₽</label>
+          </div>
+          <div class="sun-out"><span id="sunLbl">10 минут</span><b id="sunSum">500 ₽</b></div>
+          <a class="btn btn-light js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Записаться в солярий</a>
+        </div>
+      </article>
+
+      <article class="bx b-face">
+        <figure class="ph"><img src="img/cosmetics-600.webp" srcset="img/cosmetics-600.webp 600w, img/cosmetics-1200.webp 720w" sizes="(max-width:759px) 100vw, 22vw" alt="Косметика для ухода за лицом" loading="lazy"></figure>
+        <div class="bx-in">
+          <p class="label">Лицо</p>
+          <h3>Уход <em>с врачом</em></h3>
+          <p style="margin:10px 0 0;color:var(--ink-2)">Приём ведёт косметолог с медицинским образованием.</p>
+          <ul>
+            <li><b>Лечение акне Bio и LED</b><strong>2 500 ₽</strong></li>
+            <li><b>RF-лифтинг лица, 40 мин</b><strong>2 500 ₽</strong></li>
+            <li><b>Эндосфера: лицо и подбородок</b><strong>2 500 ₽</strong></li>
+            <li><b>Чистки и пилинги</b><span>после консультации</span></li>
+          </ul>
+          <p class="fine">К лечению акне — домашний уход в подарок. RF-лифтинг — строго с 20 лет.</p>
+        </div>
+      </article>
+
+      <article class="bx b-more">
+        <div class="bx-in">
+          <p class="label">Ещё в студии</p>
+          <h3>Мелочи, ради которых <em>не нужно</em> ехать в центр</h3>
+          <ul>
+            <li><b>Восковая депиляция</b><span>в том числе мужская</span></li>
+            <li><b>Ламинирование ресниц и бровей</b><span>мастер Диана</span></li>
+            <li><b>Пирсинг: ухо и хрящи</b><span>украшения из титана и хирургической стали</span></li>
+            <li><b>Перманентный макияж</b><span>по записи</span></li>
+            <li><b>Подарочные сертификаты</b><span><a href="#gift">собрать эскиз →</a></span></li>
+          </ul>
+          <p class="fine">Цены на эти услуги назовёт администратор: <a href="tel:+79031002862">+7 903 100-28-62</a>.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="otzyvy">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · отзывы</span>41 отзыв и 5,0 — ваш главный аргумент, но на Картах их мало кто листает. Здесь лучшие цитаты стоят рядом с кнопкой записи. <b>Маргариту благодарят по имени в 23 отзывах из 41</b> — это готовый личный бренд мастера, его стоит показывать.</div>
+    <div class="sec-head">
+      <p class="label">Мастера и отзывы</p>
+      <h2>Руки, о которых <em>пишут</em></h2>
+    </div>
+    <div class="team">
+      <article class="master">
+        <figure class="ph"><img src="img/hands-600.webp" srcset="img/hands-600.webp 600w, img/hands-1200.webp 960w" sizes="(max-width:759px) 100vw, 25vw" alt="Ручной массаж стопы" loading="lazy"></figure>
+        <div class="master-in">
+          <p class="label">Массажист</p>
+          <h3>Маргарита Швед</h3>
+          <p>Её благодарят по имени <b>в 23 отзывах из 41</b>.</p>
+          <div class="mq"><b>Сначала спрашивает</b><q>Перед процедурой специалист уточнила все мои жалобы и пожелания</q><small>Лиля А., 5 сентября</small></div>
+          <div class="mq"><b>Сильные руки</b><q>Так сильно промнёт не каждый мужчина</q><small>Мария, 24 августа</small></div>
+          <div class="mq"><b>Не спешит</b><q>Никуда не спешит, всё прорабатывает</q><small>ШБ, 30 июля</small></div>
+        </div>
+      </article>
+      <div class="side">
+        <div class="crew">
+          <p class="label">Команда</p>
+          <ul>
+            <li><b>Екатерина</b><span>массаж, по отзывам — акцент на лимфу и отёки</span></li>
+            <li><b>Венера</b><span>солярий</span></li>
+            <li><b>Диана</b><span>ламинирование</span></li>
+            <li><b>Косметолог</b><span>с медицинским образованием</span></li>
+          </ul>
+        </div>
+        <div class="stats">
+          <p class="label">Что отмечают на Яндекс Картах</p>
+          <div class="stats-top"><b>5,0</b><span>54 оценки · 41 отзыв</span></div>
+          <div class="stat"><span>Персонал</span><i></i><span>100% · 28</span></div>
+          <div class="stat"><span>Массаж</span><i></i><span>100% · 27</span></div>
+          <div class="stat"><span>Компетентность</span><i></i><span>100% · 11</span></div>
+          <div class="stat"><span>Атмосфера</span><i></i><span>100% · 10</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="revs" id="revs">
+      <figure class="rev"><blockquote>Тут реально получилось до мурашек… такое удовольствие и расслабление головой и телом!</blockquote><figcaption><b>Ekaterina L.</b> · 22 августа</figcaption></figure>
+      <figure class="rev"><blockquote>Первый за всё время человек, который определил причину проблемы, которая со мной не один год!</blockquote><figcaption><b>Мария</b> · 24 августа</figcaption></figure>
+      <figure class="rev"><blockquote>Спина — как новая, кожа подтянулась. Буду ходить теперь только к ней, даже когда перееду с района.</blockquote><figcaption><b>Ольга М.</b> · 20 мая, комплекс с RF-лифтингом</figcaption></figure>
+      <figure class="rev"><blockquote>Сходила на «Сушку» — массаж всего тела час, потом бандажное обёртывание ещё час. Лёгкость невероятная!</blockquote><figcaption><b>София</b> · 18 сентября</figcaption></figure>
+      <figure class="rev"><blockquote>Сам солярий новый, порадовала функция виброплатформы: и загораешь, и лимфодренаж улучшаешь.</blockquote><figcaption><b>Екатерина С.</b> · 8 июля</figcaption></figure>
+      <figure class="rev"><blockquote>В студии уютно: тихо, спокойно, приятный запах — сразу чувствуешь, что можно выдохнуть.</blockquote><figcaption><b>Ульяна К.</b> · 29 октября</figcaption></figure>
+    </div>
+    <div class="revs-nav">
+      <a href="https://yandex.ru/maps/org/do_murashek/168644738252/reviews/" target="_blank" rel="noopener">Все 41 отзыв на Яндекс Картах →</a>
+      <div class="arrows"><button type="button" id="revPrev" aria-label="Предыдущие отзывы">←</button><button type="button" id="revNext" aria-label="Следующие отзывы">→</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="place">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · фото</span>Все фото — с ваших Карт, снятые на телефон. Интерьер у вас сильный, поэтому при запуске советую <b>переснять 6–8 кадров при дневном свете</b>: сайт станет выглядеть ещё дороже. Раскладка под это уже готова.</div>
+    <div class="sec-head">
+      <p class="label">Атмосфера</p>
+      <h2>У нас можно <em>не спешить</em></h2>
+    </div>
+    <div class="place" id="gallery">
+      <button type="button" class="ph p-a" data-full="img/room-1200.webp" data-cap="Кабинет массажа"><img src="img/room-600.webp" srcset="img/room-600.webp 600w, img/room-1200.webp 960w" sizes="(max-width:759px) 80vw, 50vw" alt="Кабинет массажа" loading="lazy" style="object-position:50% 70%"><figcaption>Кабинет массажа</figcaption></button>
+      <button type="button" class="ph p-b" data-full="img/lounge-1200.webp" data-cap="Зона отдыха"><img src="img/lounge-600.webp" srcset="img/lounge-600.webp 600w, img/lounge-1200.webp 960w" sizes="(max-width:759px) 80vw, 25vw" alt="Зона отдыха с диваном" loading="lazy"><figcaption>Зона отдыха</figcaption></button>
+      <button type="button" class="ph p-c" data-full="img/coffee-1200.webp" data-cap="Кофе и печенье"><img src="img/coffee-600.webp" srcset="img/coffee-600.webp 600w, img/coffee-1200.webp 720w" sizes="(max-width:759px) 80vw, 25vw" alt="Чашка кофе и печенье на подносе" loading="lazy"><figcaption>Кофе и печенье</figcaption></button>
+      <button type="button" class="ph p-d" data-full="img/bath-1200.webp" data-cap="Душевая"><img src="img/bath-600.webp" srcset="img/bath-600.webp 600w, img/bath-1200.webp 960w" sizes="(max-width:759px) 80vw, 25vw" alt="Душевая с круглым зеркалом" loading="lazy"><figcaption>Душевая</figcaption></button>
+      <div class="p-text">
+        <p>До и после процедуры есть зона отдыха: кофе или чай, печенье, можно спокойно выдохнуть после дороги и задержаться после массажа.</p>
+        <div class="feats"><span>Кофе, чай, печенье</span><span>Зона отдыха</span><span>Душевая</span><span>Wi-Fi</span><span>Парковка и велопарковка</span><span>Вход доступен на коляске</span></div>
+      </div>
+      <button type="button" class="ph p-f" data-full="img/device-1200.webp" data-cap="Аппаратный кабинет"><img src="img/device-600.webp" srcset="img/device-600.webp 600w, img/device-1200.webp 960w" sizes="(max-width:759px) 80vw, 25vw" alt="Аппарат для процедур у окна" loading="lazy"><figcaption>Аппаратный кабинет</figcaption></button>
+      <button type="button" class="ph p-g" data-full="img/endo-1200.webp" data-cap="Аппарат Endospheres"><img src="img/endo-600.webp" srcset="img/endo-600.webp 600w, img/endo-1200.webp 720w" sizes="(max-width:759px) 80vw, 25vw" alt="Насадка аппарата эндосферы" loading="lazy" style="object-position:50% 30%"><figcaption>Аппарат Endospheres</figcaption></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="gift">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · сертификаты</span>До Нового года два месяца, начинается сезон подарков. Гость сам собирает сертификат, скачивает эскиз, а вам приходит готовый заказ: <b>деньги вперёд и новый клиент</b>, который придёт по подарку. На каждом эскизе ваш адрес и телефон, так что пересылка друзьям работает как реклама.</div>
+    <div class="sec-head">
+      <p class="label">Подарочный сертификат</p>
+      <h2>Подарите <em>мурашки</em></h2>
+      <p class="sub">Выберите сумму или процедуру, впишите имя и пожелание. Скачайте эскиз или закажите настоящий сертификат: администратор оформит его с номером.</p>
+    </div>
+    <div class="gift">
+      <form class="gift-form" id="giftForm" onsubmit="return false">
+        <div class="fld">
+          <span>Что дарим</span>
+          <div class="chips" id="gMode"><button type="button" class="chip" data-m="sum" aria-pressed="true">Сумму</button><button type="button" class="chip" data-m="proc" aria-pressed="false">Процедуру</button></div>
+        </div>
+        <div class="fld" id="gSumBox">
+          <span>Номинал</span>
+          <div class="chips" id="gSum">
+            <button type="button" class="chip" data-v="3000" aria-pressed="false">3 000 ₽</button>
+            <button type="button" class="chip" data-v="5000" aria-pressed="true">5 000 ₽</button>
+            <button type="button" class="chip" data-v="7000" aria-pressed="false">7 000 ₽</button>
+            <button type="button" class="chip" data-v="10000" aria-pressed="false">10 000 ₽</button>
+          </div>
+          <input class="inp" id="gSumOwn" type="number" inputmode="numeric" min="500" max="100000" step="500" placeholder="Или своя сумма, ₽" style="margin-top:8px">
+        </div>
+        <div class="fld hidden" id="gProcBox">
+          <span>Процедура</span>
+          <div class="chips" id="gProc"></div>
+        </div>
+        <div class="fld two">
+          <label><span style="display:block;font-size:13px;color:var(--ink-2);margin-bottom:8px">Кому</span><input class="inp" id="gTo" maxlength="22" placeholder="Например, Анне" autocomplete="off"></label>
+          <label><span style="display:block;font-size:13px;color:var(--ink-2);margin-bottom:8px">От кого</span><input class="inp" id="gFrom" maxlength="22" placeholder="Например, от Димы" autocomplete="off"></label>
+        </div>
+        <div class="fld">
+          <span>Пожелание</span>
+          <div class="chips" id="gWish">
+            <button type="button" class="chip" aria-pressed="true">До мурашек!</button>
+            <button type="button" class="chip" aria-pressed="false">Время только для тебя</button>
+            <button type="button" class="chip" aria-pressed="false">С днём рождения!</button>
+            <button type="button" class="chip" aria-pressed="false">С Новым годом!</button>
+          </div>
+          <input class="inp" id="gWishOwn" maxlength="40" placeholder="Или своё пожелание" autocomplete="off" style="margin-top:8px">
+        </div>
+        <div class="fld">
+          <span>Оформление</span>
+          <div class="chips" id="gTheme">
+            <button type="button" class="chip" data-t="night" aria-pressed="true">Чёрный, как логотип</button>
+            <button type="button" class="chip" data-t="curtain" aria-pressed="false">Шторы</button>
+            <button type="button" class="chip" data-t="green" aria-pressed="false">Зелёная комната</button>
+          </div>
+        </div>
+        <div class="gift-btns">
+          <a class="btn btn-dark" id="gOrder" href="https://wa.me/79031002862" target="_blank" rel="noopener">Заказать сертификат</a>
+          <button type="button" class="btn" id="gDl">Скачать эскиз PNG</button>
+        </div>
+        <p class="fine">Это эскиз. Настоящий сертификат с номером выдаёт администратор, оплата — в студии.</p>
+      </form>
+      <div class="gift-prev">
+        <canvas id="cert" width="1200" height="750" role="img" aria-label="Эскиз подарочного сертификата"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kontakty">
+  <div class="wrap">
+    <div class="owner-note"><span class="on-t">Для владельца · контакты</span>Вход в ЖК ищут, поэтому фото таблички, двери и окна с наклейкой SPA снимают звонки «а где вы?». Карта грузится только по клику, и сайт открывается быстро даже на слабом мобильном интернете.</div>
+    <div class="sec-head">
+      <p class="label">Контакты</p>
+      <h2>Как нас <em>найти</em></h2>
+    </div>
+    <div class="contact">
+      <div class="c-card">
+        <div class="c-row"><span>Адрес</span><div>Одинцово, Берёзовая ул., 6, корп. 1<br>ЖК «Одинцово-1», 1 этаж</div></div>
+        <div class="c-row"><span>Часы</span><div>Ежедневно 10:00–22:00<br><small id="cStatus" style="color:var(--ink-2)"></small></div></div>
+        <div class="c-row"><span>Телефон</span><div><a href="tel:+79031002862">+7 903 100-28-62</a>, администратор</div></div>
+        <div class="c-row"><span>Запись</span><div><a class="js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">онлайн в YCLIENTS</a>, круглосуточно</div></div>
+        <div class="c-row"><span>Соцсети</span><div><a href="https://t.me/Do_murashek_01" target="_blank" rel="noopener">Telegram-канал</a> · <a href="https://vk.com/club237184277" target="_blank" rel="noopener">ВКонтакте</a></div></div>
+        <div class="c-btns">
+          <a class="btn btn-dark btn-sm" href="https://yandex.ru/maps/?rtext=~55.657355%2C37.272526&amp;rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+          <a class="btn btn-sm" href="tel:+79031002862">Позвонить</a>
+          <a class="btn btn-sm" href="https://yandex.ru/maps/org/do_murashek/168644738252/" target="_blank" rel="noopener">На Яндекс Картах</a>
+        </div>
+        <div class="find" id="find">
+          <button type="button" class="ph" data-full="img/sign-1200.webp" data-cap="Табличка: Берёзовая улица, 6, корпус 1"><img src="img/sign-600.webp" alt="Табличка Берёзовая улица, 6, корпус 1" loading="lazy"><figcaption>Берёзовая, 6 корпус 1</figcaption></button>
+          <button type="button" class="ph" data-full="img/door-1200.webp" data-cap="Дверь с наклейкой «Ручной и аппаратный массаж»"><img src="img/door-600.webp" alt="Стеклянная дверь с наклейкой Ручной и аппаратный массаж" loading="lazy"><figcaption>Дверь с наклейкой «массаж»</figcaption></button>
+          <button type="button" class="ph" data-full="img/window-1200.webp" data-cap="Окно с наклейкой SPA"><img src="img/window-600.webp" alt="Окно с наклейкой SPA" loading="lazy"><figcaption>Окно с наклейкой SPA</figcaption></button>
+        </div>
+        <div class="mapbox" id="mapbox"><button type="button" class="btn btn-sm" id="mapBtn">Показать карту</button></div>
+      </div>
+      <div class="faq">
+        <details open><summary>Как записаться?</summary><p>Онлайн в YCLIENTS — круглосуточно и без звонка. Или по телефону администратора +7 903 100-28-62, ежедневно с 10:00 до 22:00.</p></details>
+        <details><summary>Есть ли противопоказания?</summary><p>Да, как у любого массажа и аппаратных процедур. Перед сеансом мастер расспрашивает о самочувствии и жалобах, об этом часто пишут в отзывах. RF-лифтинг — строго с 20 лет. Если сомневаетесь, начните с консультации.</p></details>
+        <details><summary>Мужчинам можно?</summary><p>Да. У ручного массажа «для него» свой прайс, есть спортивный массаж (6 000 ₽, 1 час) и мужская восковая депиляция.</p></details>
+        <details><summary>Есть абонементы и курсы?</summary><p>Есть — гости упоминают абонементы в отзывах. Условия и цену курса назовёт администратор.</p></details>
+        <details><summary>Можно подарить процедуру?</summary><p>Да, есть подарочные сертификаты на любой номинал. Эскиз можно собрать <a href="#gift">прямо на этой странице</a>.</p></details>
+        <details><summary>Как оплатить?</summary><p>Наличными или онлайн — так указано в карточке студии на Яндекс Картах.</p></details>
+        <details><summary>Где оставить машину?</summary><p>У дома есть парковка и велопарковка. Вход доступен для коляски.</p></details>
+        <details><summary>Можно прийти с собакой?</summary><p>Нет, с животными в студию нельзя.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap offer">
+  <div class="owner-note"><span class="on-t">Для владельца · что дальше</span>Если сайт нравится, он запускается за несколько дней: подключаю ваш домен, ставлю Яндекс Метрику, чтобы вы видели, сколько людей нажали «Записаться», и добавляю ссылку на сайт в карточки на Яндекс Картах и в 2ГИС. Цены и фото поменяю по вашему сообщению. <b>Денис Стрепенюк, +7 977 393-80-33</b>.</div>
+</div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="biglogo" aria-label="ДО Мурашек">ДМ<span>ДО МУРАШЕК</span></p>
+    <p class="tagline">Раскрой свою внутреннюю силу — стань лучшей версией себя</p>
+    <div class="foot-grid">
+      <div><h4>Студия</h4><p>Одинцово, Берёзовая ул., 6, корп. 1<br>ЖК «Одинцово-1», 1 этаж<br>Ежедневно 10:00–22:00</p></div>
+      <div><h4>Связь</h4><p><a href="tel:+79031002862">+7 903 100-28-62</a><br><a class="js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Онлайн-запись</a><br><a href="https://t.me/Do_murashek_01" target="_blank" rel="noopener">Telegram</a> · <a href="https://vk.com/club237184277" target="_blank" rel="noopener">ВКонтакте</a></p></div>
+      <div><h4>Разделы</h4><p><a href="#podbor">Подбор по зоне</a><br><a href="#spa">Спа и солярий</a><br><a href="#gift">Сертификаты</a></p></div>
+    </div>
+    <div class="demo-note"><b>Демо-версия сайта.</b> Сделана по открытым данным: Яндекс Карты (цены от 8 сентября, фото, отзывы, новости), онлайн-запись YCLIENTS и Telegram-канал студии. Разработка — <b>Денис Стрепенюк</b>, <a href="tel:+79773938033">+7 977 393-80-33</a>.</div>
+  </div>
+</footer>
+
+<a class="ppill" id="ppill" href="#prog">Программа</a>
+<nav class="mbar" aria-label="Быстрые действия">
+  <a href="#podbor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 10h10M12 10v5M9 21l3-6 3 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Подобрать</a>
+  <a class="main js-yc" href="https://n2070993.yclients.com/company/1813539/personal/select-services" target="_blank" rel="noopener">Записаться</a>
+  <a href="tel:+79031002862"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5l2.6 3.8-1.6 2.3a11 11 0 0 0 6.8 6.8l2.3-1.6 3.8 2.6-1.2 3a2 2 0 0 1-2.1 1.2C10.4 20.6 3.4 13.6 2.4 6.8a2 2 0 0 1 1.2-2.1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Позвонить</a>
+</nav>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Фото">
+  <button type="button" class="lb-x" id="lbX" aria-label="Закрыть">×</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</div>
+
+<script>
+console.log('%cДО Мурашек — демо-версия сайта. Разработка: Денис Стрепенюк, +7 977 393-80-33', 'color:#7A5038;font-weight:bold;font-size:13px');
+var $ = function(s, r){ return (r || document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var YC = 'https://n2070993.yclients.com/company/1813539/personal/select-services';
+var WA = '79031002862';
+function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'; }
+function dur(min){ var h = Math.floor(min / 60), m = min % 60; return (h ? h + ' ч' : '') + (h && m ? ' ' : '') + (m ? m + ' мин' : ''); }
+function wa(text){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
+
+/* ---------- режим владельца ---------- */
+var ownerBtn = $('#ownerToggle');
+function setOwner(on){ document.body.classList.toggle('owner', on); ownerBtn.setAttribute('aria-pressed', on ? 'true' : 'false'); try { localStorage.setItem('dm-owner', on ? '1' : '0'); } catch (e) {} }
+var ownerInit = /[?&]owner=1/.test(location.search);
+if (!ownerInit) { try { ownerInit = localStorage.getItem('dm-owner') === '1'; } catch (e) {} }
+setOwner(ownerInit);
+ownerBtn.addEventListener('click', function(){ setOwner(!document.body.classList.contains('owner')); });
+
+/* ---------- время по Москве: часы работы и счастливые часы ---------- */
+var HOLIDAYS = ['01-01','01-02','01-03','01-04','01-05','01-06','01-07','01-08','02-23','03-08','05-01','05-09','06-12','11-04'];
+var ON_DAY = ['в воскресенье','в понедельник','во вторник','в среду','в четверг','в пятницу','в субботу'];
+function msk(){
+  var t = new Date(Date.now() + 3 * 3600e3);
+  var mmdd = ('0' + (t.getUTCMonth() + 1)).slice(-2) + '-' + ('0' + t.getUTCDate()).slice(-2);
+  var dow = t.getUTCDay();
+  return { dow: dow, h: t.getUTCHours(), m: t.getUTCMinutes(), min: t.getUTCHours() * 60 + t.getUTCMinutes(), holiday: HOLIDAYS.indexOf(mmdd) > -1, weekday: dow > 0 && dow < 6 && HOLIDAYS.indexOf(mmdd) < 0 };
+}
+function isHHday(offset){
+  var t = new Date(Date.now() + 3 * 3600e3 + offset * 864e5);
+  var mmdd = ('0' + (t.getUTCMonth() + 1)).slice(-2) + '-' + ('0' + t.getUTCDate()).slice(-2);
+  return t.getUTCDay() > 0 && t.getUTCDay() < 6 && HOLIDAYS.indexOf(mmdd) < 0;
+}
+function nextHH(){
+  for (var i = 1; i < 10; i++) if (isHHday(i)) {
+    var t = new Date(Date.now() + 3 * 3600e3 + i * 864e5);
+    return (i === 1 ? 'завтра' : ON_DAY[t.getUTCDay()]) + ' с 10:00';
+  }
+  return 'в будни с 10:00';
+}
+function left(min){ return dur(min); }
+function updateTime(){
+  var n = msk(), st = $('#status'), txt, cls = '';
+  var open = n.min >= 600 && n.min < 1320, hh = n.weekday && n.min >= 600 && n.min < 780;
+  if (hh) { cls = 'hh'; txt = 'Открыто · счастливые часы: −500 ₽ на массаж ещё ' + left(780 - n.min); }
+  else if (open) { cls = 'open'; txt = 'Открыто до 22:00' + (n.holiday ? ' · сегодня праздник, работаем как обычно' : ''); }
+  else if (n.min < 600) { txt = 'Откроемся сегодня в 10:00' + (n.weekday ? ' · с 10 до 13 скидка 500 ₽ на массаж' : ''); }
+  else { txt = 'Закрыто · откроемся завтра в 10:00' + (isHHday(1) ? ', утром — счастливые часы' : ''); }
+  st.className = 'status ' + cls; st.lastElementChild.textContent = txt;
+  $('#cStatus').textContent = open ? 'Сейчас открыто' : 'Сейчас закрыто, запись онлайн работает';
+  var hn = $('#hhNow'), ht;
+  if (hh) ht = 'Сейчас действует: до 13:00 осталось ' + left(780 - n.min);
+  else if (n.weekday && n.min < 600) ht = 'Сегодня с 10:00 до 13:00';
+  else ht = 'Следующие счастливые часы — ' + nextHH();
+  hn.className = 'hh-now' + (hh ? ' on' : ''); hn.lastElementChild.textContent = ht;
+  var bars = $('#hhBars');
+  if (!bars.children.length) for (var h = 10; h < 22; h++) bars.insertAdjacentHTML('beforeend', '<div class="hh-bar' + (h < 13 ? ' hh' : '') + '" data-h="' + h + '"><i></i><span>' + h + '</span></div>');
+  $$('.hh-bar', bars).forEach(function(b){ b.classList.toggle('now', open && +b.dataset.h === n.h); });
+}
+updateTime(); setInterval(updateTime, 30000);
+
+/* ---------- шапка и полоса разделов ---------- */
+var hdr = $('#hdr');
+addEventListener('scroll', function(){ hdr.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
+var navLinks = $$('.strip a, .hdr-nav a');
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var id = '#' + e.target.id;
+      navLinks.forEach(function(a){
+        var on = a.getAttribute('href') === id; a.classList.toggle('on', on);
+        if (on && a.parentElement.id === 'strip') { var s = a.parentElement; s.scrollTo({ left: a.offsetLeft - 16, behavior: reduce ? 'auto' : 'smooth' }); }
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ['podbor','happy','spa','sun','otzyvy','place','gift','kontakty'].forEach(function(id){ io.observe(document.getElementById(id)); });
+}
+
+/* ---------- слайдер первого экрана ---------- */
+(function(){
+  var box = $('#slides'), dots = $('#dots'), n = box.children.length, idx = 0, touched = 0;
+  for (var i = 0; i < n; i++) dots.insertAdjacentHTML('beforeend', '<button type="button" aria-label="Фото ' + (i + 1) + '"></button>');
+  var btns = $$('button', dots);
+  function mark(){ btns.forEach(function(b, j){ b.setAttribute('aria-current', j === idx ? 'true' : 'false'); }); }
+  function go(i){ idx = (i + n) % n; box.scrollTo({ left: idx * box.clientWidth, behavior: reduce ? 'auto' : 'smooth' }); mark(); }
+  btns.forEach(function(b, j){ b.addEventListener('click', function(){ touched = Date.now(); go(j); }); });
+  box.addEventListener('scroll', function(){ var j = Math.round(box.scrollLeft / box.clientWidth); if (j !== idx) { idx = j; mark(); } }, { passive: true });
+  ['pointerdown','touchstart','wheel','keydown'].forEach(function(ev){ box.addEventListener(ev, function(){ touched = Date.now(); }, { passive: true }); });
+  mark();
+  if (!reduce) setInterval(function(){ if (Date.now() - touched > 9000 && !document.hidden) go(idx + 1); }, 5500);
+})();
+
+/* ---------- мурашки на первом экране ---------- */
+(function(){
+  var host = $('#skin'), cv = $('#bumps'), ctx = cv.getContext('2d'), hint = $('#bumpHint');
+  var GAP = 13, W = 0, H = 0, dpr = 1, pts = [], imp = [], raf = 0, last = 0, lx = -99, ly = -99;
+  function resize(){
+    var r = host.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    pts = []; var row = 0;
+    for (var y = GAP / 2; y < H; y += GAP, row++) for (var x = GAP / 2 + (row % 2 ? GAP / 2 : 0); x < W; x += GAP) pts.push(x, y);
+    draw(performance.now());
+  }
+  function add(x, y, s){ imp.push({ x: x, y: y, t: performance.now(), s: s || 1 }); if (imp.length > 16) imp.shift(); if (!raf) raf = requestAnimationFrame(loop); }
+  function loop(now){ raf = 0; draw(now); imp = imp.filter(function(i){ return now - i.t < 1700; }); if (imp.length) raf = requestAnimationFrame(loop); }
+  function draw(now){
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    if (!imp.length) return;
+    for (var k = 0; k < pts.length; k += 2) {
+      var x = pts[k], y = pts[k + 1], h = 0;
+      for (var j = 0; j < imp.length; j++) {
+        var i = imp[j], age = (now - i.t) / 1000, life = 1 - age / 1.7; if (life <= 0) continue;
+        var dx = x - i.x, dy = y - i.y, d = Math.sqrt(dx * dx + dy * dy), front = 30 + age * 240;
+        if (d > front + 70) continue;
+        var dd = d - front, ring = Math.exp(-(dd * dd) / 1800), near = Math.exp(-(d * d) / 2600);
+        h += (ring * .85 + near * .7) * life * i.s;
+      }
+      if (h < .05) continue; if (h > 1) h = 1;
+      var r = .5 + h * 1.7;
+      ctx.fillStyle = 'rgba(122,80,56,' + (.32 * h) + ')'; ctx.beginPath(); ctx.arc(x + .5 * h, y + .8 * h, r, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,' + (.95 * h) + ')'; ctx.beginPath(); ctx.arc(x - .35 * h, y - .45 * h, r * .78, 0, 6.2832); ctx.fill();
+    }
+  }
+  function at(cx, cy, s){
+    var r = cv.getBoundingClientRect(), x = cx - r.left, y = cy - r.top, now = performance.now();
+    if (now - last < 60 && Math.abs(x - lx) + Math.abs(y - ly) < 26) return;
+    last = now; lx = x; ly = y; add(x, y, s);
+    if (hint) { hint.classList.add('gone'); hint = null; }
+  }
+  host.addEventListener('pointermove', function(e){ at(e.clientX, e.clientY, .8); });
+  host.addEventListener('pointerdown', function(e){ at(e.clientX, e.clientY, 1.2); });
+  host.addEventListener('touchmove', function(e){ var t = e.touches[0]; if (t) at(t.clientX, t.clientY, .8); }, { passive: true });
+  addEventListener('resize', resize);
+  resize();
+  if (!reduce) {
+    var visible = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }).observe(host);
+    setTimeout(function(){ add(W * .72, H * .3, 1.1); }, 900);
+    setInterval(function(){ if (visible && !document.hidden && performance.now() - last > 4000) add(W * (.2 + Math.random() * .6), H * (.15 + Math.random() * .5), .9); }, 6500);
+  }
+})();
+
+/* ---------- подбор по зоне ---------- */
+var P = [
+  { id:'m60', n:'Общий массаж', z:['all'], k:'hand', f:3500, m:4000, d:60 },
+  { id:'m90', n:'Общий массаж 90 минут', z:['all'], k:'hand', f:5000, m:5500, d:90 },
+  { id:'lymph', n:'Лимфодренажный массаж', z:['all','legs'], k:'hand', f:3000, m:null, d:60, note:'снимает отёки и тяжесть' },
+  { id:'sport', n:'Спортивный массаж', z:['all'], k:'hand', f:null, m:6000, d:60, note:'восстановление после нагрузок' },
+  { id:'back', n:'Массаж спины', z:['back'], k:'hand', f:3000, m:3500, d:40 },
+  { id:'neck', n:'Шейно-воротниковая зона', z:['neck'], k:'hand', f:2000, m:2500, d:30 },
+  { id:'legs', n:'Массаж ног', z:['hips','legs'], k:'hand', f:3500, m:4000, d:40, note:'ягодицы, бёдра, голени, икры, стопы' },
+  { id:'acell', n:'Антицеллюлитный массаж бёдер', z:['hips'], k:'hand', f:5000, m:null, d:60 },
+  { id:'rf-face', n:'RF-лифтинг лица', z:['face'], k:'dev', p:2500, d:40, note:'строго с 20 лет' },
+  { id:'rf-belly', n:'RF-лифтинг: живот и бока', z:['belly'], k:'dev', p:2500, d:60, note:'строго с 20 лет' },
+  { id:'rf-hips', n:'RF-лифтинг: бёдра и ягодицы', z:['hips'], k:'dev', p:2500, d:60, note:'строго с 20 лет' },
+  { id:'rf-back', n:'RF-лифтинг спины', z:['back'], k:'dev', p:2500, d:60, note:'строго с 20 лет' },
+  { id:'rf-knee', n:'RF-лифтинг коленей', z:['legs'], k:'dev', p:1700, d:30, note:'строго с 20 лет' },
+  { id:'lp-arms', n:'Лазерный липолиз: плечи и руки', z:['arms'], k:'dev', p:2000, d:60 },
+  { id:'lp-back', n:'Лазерный липолиз: спина', z:['back'], k:'dev', p:2500, d:60 },
+  { id:'lp-belly', n:'Лазерный липолиз: живот', z:['belly'], k:'dev', p:2500, d:60 },
+  { id:'lp-hips', n:'Лазерный липолиз: бёдра и ягодицы', z:['hips'], k:'dev', p:2500, d:60 },
+  { id:'lp-legs', n:'Лазерный липолиз: колени и икры', z:['legs'], k:'dev', p:2000, d:60 },
+  { id:'en-all', n:'Эндосфера: всё тело', z:['all'], k:'dev', p:6500, note:'ноги, руки, живот, лицо' },
+  { id:'en-legs', n:'Эндосфера: ноги', z:['hips','legs'], k:'dev', p:3500, note:'икры, бёдра, ягодицы' },
+  { id:'en-belly', n:'Эндосфера: живот и бока', z:['belly'], k:'dev', p:3000 },
+  { id:'en-face', n:'Эндосфера: лицо и подбородок', z:['face'], k:'dev', p:2500 },
+  { id:'ms-arm', n:'Миостимуляция: плечо и верх руки', z:['arms'], k:'dev', p:1400 },
+  { id:'ms-belly', n:'Миостимуляция: живот', z:['belly'], k:'dev', p:2500 },
+  { id:'ms-glut', n:'Миостимуляция: ягодицы', z:['hips'], k:'dev', p:2500 },
+  { id:'cv-belly', n:'Ультразвуковая кавитация: живот', z:['belly'], k:'dev', p:2500 },
+  { id:'cv-hips', n:'Кавитация: ягодицы и бёдра', z:['hips'], k:'dev', p:2700 },
+  { id:'acne', n:'Лечение акне Bio и LED', z:['face'], k:'care', p:2500, note:'домашний уход — в подарок' },
+  { id:'dry', n:'Спа-программа «Сушка»', z:['all'], k:'spa', p:7000, d:120, note:'массаж всего тела + бандажное обёртывание' },
+  { id:'lam', n:'Спа-программа «Ламинария»', z:['all','hips'], k:'spa', p:8500, note:'антицеллюлитный массаж, кофейный скраб, ламинария' },
+  { id:'wrap-b', n:'Бандажное обёртывание', z:['all'], k:'spa', p:3000 },
+  { id:'wrap-l', n:'Обёртывание с ламинарией', z:['all'], k:'spa', p:2500 }
+];
+var Z = [
+  { id:'face', n:'Лицо', c:[100, 40] }, { id:'neck', n:'Шея и плечи', c:[100, 95] }, { id:'arms', n:'Руки', c:[160, 200] },
+  { id:'back', n:'Спина', c:[100, 160] }, { id:'belly', n:'Живот и бока', c:[100, 231] }, { id:'hips', n:'Ягодицы и бёдра', c:[100, 305] },
+  { id:'legs', n:'Колени и икры', c:[100, 430] }, { id:'all', n:'Всё тело', c:[100, 250] }
+];
+var KIND = { hand:'Руками', dev:'Аппаратом', care:'Уход за кожей', spa:'Спа' };
+var gender = 'f', zone = 'back', prog = [], when = '';
+var plusIco = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>';
+var checkIco = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>';
+function byId(id){ for (var i = 0; i < P.length; i++) if (P[i].id === id) return P[i]; }
+function price(p){ return p.p != null ? p.p : (gender === 'f' ? p.f : p.m); }
+function inZone(z){ return P.filter(function(p){ return p.z.indexOf(z) > -1 && price(p) != null; }); }
+
+var zb = $('#zbtns');
+Z.forEach(function(z){ zb.insertAdjacentHTML('beforeend', '<button type="button" class="zbtn" data-z="' + z.id + '" aria-pressed="false">' + z.n + ' <small></small></button>'); });
+zb.addEventListener('click', function(e){ var b = e.target.closest('.zbtn'); if (b) selectZone(b.dataset.z); });
+$('#fig').addEventListener('click', function(e){
+  var t = e.target.closest('.hit'); if (!t) return;
+  var svg = $('#fig'), p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+  var q = p.matrixTransform(svg.getScreenCTM().inverse());
+  selectZone(t.getAttribute('data-z'), [q.x, q.y]);
+});
+$$('.seg button').forEach(function(b){
+  b.addEventListener('click', function(){
+    gender = b.dataset.g;
+    $$('.seg button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    prog = prog.filter(function(id){ return price(byId(id)) != null; });
+    renderZones(); renderList(); renderProg();
+  });
+});
+function renderZones(){
+  $$('.zbtn', zb).forEach(function(b){
+    var list = inZone(b.dataset.z), min = Math.min.apply(null, list.map(price));
+    b.querySelector('small').textContent = 'от ' + fmt(min);
+    b.setAttribute('aria-pressed', b.dataset.z === zone ? 'true' : 'false');
+  });
+}
+var ripT = 0;
+function ripple(pt){
+  var c = $('#ripC');
+  $('#zTint').setAttribute('href', '#z-' + zone); $('#zBump').setAttribute('href', '#z-' + zone);
+  c.setAttribute('cx', pt[0]); c.setAttribute('cy', pt[1]);
+  if (reduce) { c.setAttribute('r', 600); return; }
+  var t0 = performance.now(); cancelAnimationFrame(ripT);
+  (function step(now){ var k = Math.max(0, Math.min(1, (now - t0) / 750)); c.setAttribute('r', 8 + 380 * (1 - Math.pow(1 - k, 3))); if (k < 1) ripT = requestAnimationFrame(step); })(t0);
+}
+function selectZone(z, pt){
+  zone = z; renderZones(); renderList();
+  var zz = Z.filter(function(x){ return x.id === z; })[0];
+  ripple(pt || zz.c);
+}
+function renderList(){
+  var zz = Z.filter(function(x){ return x.id === zone; })[0], list = inZone(zone), html = '';
+  html += '<div class="pl-head"><h3><em>' + zz.n + '</em></h3><span>' + list.length + ' ' + plural(list.length, 'процедура', 'процедуры', 'процедур') + '</span></div>';
+  ['hand','dev','care','spa'].forEach(function(k){
+    var g = list.filter(function(p){ return p.k === k; }); if (!g.length) return;
+    html += '<div class="grp"><h4>' + KIND[k] + '</h4>';
+    g.forEach(function(p){
+      var on = prog.indexOf(p.id) > -1, meta = [];
+      if (p.d) meta.push(dur(p.d)); if (p.note) meta.push(p.note);
+      html += '<div class="proc"><div><b>' + p.n + '</b>' + (meta.length ? '<span>' + meta.join(' · ') + '</span>' : '') + '</div><div class="pr">' + fmt(price(p)) + '</div>' +
+        '<button type="button" class="add" data-id="' + p.id + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Убрать из программы: ' : 'Добавить в программу: ') + p.n + '">' + (on ? checkIco : plusIco) + '</button></div>';
+    });
+    html += '</div>';
+  });
+  html += '<p class="consult">Не уверены, что выбрать? Консультация мастера массажа или косметолога — 1 ₽ по прайсу студии.</p>';
+  $('#podList').innerHTML = html;
+}
+function plural(n, a, b, c){ var m = n % 10, mm = n % 100; return m === 1 && mm !== 11 ? a : m >= 2 && m <= 4 && (mm < 10 || mm >= 20) ? b : c; }
+function toggle(id){
+  var i = prog.indexOf(id);
+  if (i > -1) prog.splice(i, 1); else if (price(byId(id)) != null) prog.push(id);
+  renderList(); renderProg();
+}
+$('#podList').addEventListener('click', function(e){ var b = e.target.closest('.add'); if (b) toggle(b.dataset.id); });
+$$('.addline').forEach(function(b){ b.addEventListener('click', function(){ toggle(b.dataset.add); }); });
+$('#progList').addEventListener('click', function(e){ var b = e.target.closest('button[data-id]'); if (b) toggle(b.dataset.id); });
+$$('#when .chip').forEach(function(b){
+  b.addEventListener('click', function(){
+    when = when === b.dataset.w ? '' : b.dataset.w;
+    $$('#when .chip').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.w === when ? 'true' : 'false'); });
+    renderProg();
+  });
+});
+var WHEN = { hh:'будни 10:00–13:00 (счастливые часы)', day:'будни днём', eve:'вечером', we:'выходные' };
+function renderProg(){
+  var items = prog.map(byId), total = 0, mins = 0, unknown = 0, hasHand = false, ul = $('#progList');
+  items.forEach(function(p){ total += price(p); if (p.d) mins += p.d; else unknown++; if (p.k === 'hand') hasHand = true; });
+  var disc = when === 'hh' && hasHand ? 500 : 0;
+  ul.innerHTML = items.length ? items.map(function(p){ return '<li><span>' + p.n + (p.d ? ', ' + dur(p.d) : '') + '</span><b>' + fmt(price(p)) + '</b><button type="button" data-id="' + p.id + '" aria-label="Убрать: ' + p.n + '">×</button></li>'; }).join('')
+    : '<li class="empty">Добавьте процедуры кнопкой «+»: можно из разных зон.</li>';
+  $('#progTitle').textContent = items.length ? items.length + ' ' + plural(items.length, 'процедура', 'процедуры', 'процедур') : 'Пока пусто';
+  $('#progTotal').textContent = fmt(total - disc);
+  var meta = [];
+  if (mins) meta.push('около ' + dur(mins) + (unknown ? ' + время аппаратных уточнит администратор' : ''));
+  if (disc) meta.push('<i>−500 ₽ в счастливые часы</i>');
+  else if (hasHand && when !== 'hh') meta.push('по будням 10–13 будет на 500 ₽ дешевле');
+  $('#progMeta').innerHTML = meta.join(' · ');
+  var g = gender === 'f' ? 'для неё' : 'для него', text;
+  if (items.length) {
+    text = 'Здравствуйте! Хочу записаться в «ДО Мурашек» (' + g + '):\n' + items.map(function(p){ return '• ' + p.n + (p.d ? ', ' + dur(p.d) : '') + ' — ' + fmt(price(p)).replace(/ /g, ' '); }).join('\n') +
+      '\nИтого по прайсу: ' + fmt(total - disc).replace(/ /g, ' ') + (disc ? ' (с учётом −500 ₽ в счастливые часы)' : '') +
+      (when ? '\nКогда удобно: ' + WHEN[when] : '') + '\nПодскажите, пожалуйста, свободное время?';
+  } else {
+    text = 'Здравствуйте! Хочу записаться в «ДО Мурашек»' + (when ? ', удобно ' + WHEN[when] : '') + '. Подскажите, пожалуйста, свободное время?';
+  }
+  $('#progWA').href = wa(text);
+  $$('.addline').forEach(function(b){ var on = prog.indexOf(b.dataset.add) > -1; b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.innerHTML = (on ? checkIco : plusIco) + '<span>' + (on ? 'В программе' : 'В программу') + '</span>'; });
+  var pill = $('#ppill');
+  pill.textContent = 'Программа: ' + items.length + ' · ' + fmt(total - disc) + ' →';
+  pill.dataset.n = items.length; pillCheck();
+}
+var progVisible = false;
+function pillCheck(){ var pill = $('#ppill'); pill.classList.toggle('show', +pill.dataset.n > 0 && !progVisible && innerWidth < 760); }
+if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ progVisible = es[0].isIntersecting; pillCheck(); }).observe($('#prog'));
+renderZones(); renderList(); renderProg();
+ripple(Z[3].c);
+
+/* ---------- солярий ---------- */
+(function(){
+  var M = [5, 7, 10, 15, 20], PR = { 5:250, 7:350, 10:500, 15:750, 20:1000 }, sel = 10, box = $('#sunBars');
+  M.forEach(function(m){ box.insertAdjacentHTML('beforeend', '<button type="button" class="sun-bar" data-m="' + m + '" aria-pressed="' + (m === sel) + '" aria-label="' + m + ' минут, ' + PR[m] + ' рублей"><i style="height:' + (m / 20 * 100) + '%"></i><span>' + m + ' мин</span></button>'); });
+  function upd(){
+    var s = PR[sel] + ($('#sunSt').checked ? 60 : 0) + ($('#sunCr').checked ? 250 : 0);
+    $('#sunLbl').textContent = sel + ' ' + plural(sel, 'минута', 'минуты', 'минут') + ($('#sunSt').checked || $('#sunCr').checked ? ' + допы' : '');
+    $('#sunSum').textContent = fmt(s);
+    $$('.sun-bar', box).forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.m === sel ? 'true' : 'false'); });
+  }
+  box.addEventListener('click', function(e){ var b = e.target.closest('.sun-bar'); if (b) { sel = +b.dataset.m; upd(); } });
+  $('#sunSt').addEventListener('change', upd); $('#sunCr').addEventListener('change', upd);
+  upd();
+})();
+
+/* ---------- отзывы ---------- */
+(function(){
+  var r = $('#revs');
+  function step(dir){ var c = r.children[0]; r.scrollBy({ left: dir * (c.getBoundingClientRect().width + 14), behavior: reduce ? 'auto' : 'smooth' }); }
+  $('#revPrev').addEventListener('click', function(){ step(-1); });
+  $('#revNext').addEventListener('click', function(){ step(1); });
+})();
+
+/* ---------- лайтбокс ---------- */
+(function(){
+  var lb = $('#lb'), img = $('#lbImg'), cap = $('#lbCap'), back = null;
+  function open(b){ back = b; img.src = b.dataset.full; img.alt = b.dataset.cap; cap.textContent = b.dataset.cap; lb.hidden = false; $('#lbX').focus(); }
+  function close(){ lb.hidden = true; img.removeAttribute('src'); if (back) back.focus(); }
+  $$('[data-full]').forEach(function(b){ b.addEventListener('click', function(){ open(b); }); });
+  $('#lbX').addEventListener('click', close);
+  lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape' && !lb.hidden) close(); });
+})();
+
+/* ---------- карта по клику ---------- */
+$('#mapBtn').addEventListener('click', function(){
+  var f = document.createElement('iframe');
+  f.src = 'https://yandex.ru/map-widget/v1/?ll=37.272526%2C55.657355&z=17&pt=37.272526,55.657355,pm2ntl';
+  f.title = 'ДО Мурашек на Яндекс Картах'; f.loading = 'lazy'; f.allowFullscreen = true;
+  $('#mapbox').innerHTML = ''; $('#mapbox').classList.add('on'); $('#mapbox').appendChild(f);
+});
+
+/* ---------- подарочный сертификат ---------- */
+var CP = [
+  { id:'m60', n:'Общий массаж, 60 минут', s:'3 500 / 4 000 ₽' },
+  { id:'dry', n:'Спа-программа «Сушка»', s:'7 000 ₽' },
+  { id:'lam', n:'Спа-программа «Ламинария»', s:'8 500 ₽' },
+  { id:'en-all', n:'Эндосфера: всё тело', s:'6 500 ₽' },
+  { id:'rf-face', n:'RF-лифтинг лица', s:'2 500 ₽' },
+  { id:'sun', n:'Солярий, 10 минут', s:'500 ₽' }
+];
+var cert = { mode:'sum', sum:5000, proc:'dry', wish:'До мурашек!', theme:'night' };
+var TH = {
+  night:   { bg:'#1C1916', bg2:'#2B231D', ink:'#F7F0E8', acc:'#E9B37C', soft:'#A89C90', line:'rgba(233,179,124,.35)', sh:'0,0,0', hi:'233,179,124' },
+  curtain: { bg:'#7B604E', bg2:'#5C4637', ink:'#FFF8F0', acc:'#F6D9B6', soft:'#E2CDB9', line:'rgba(255,240,225,.4)', sh:'40,25,15', hi:'255,236,214' },
+  green:   { bg:'#2E4634', bg2:'#203327', ink:'#F4F1E8', acc:'#DCCB9C', soft:'#B9C0A8', line:'rgba(220,203,156,.4)', sh:'10,20,12', hi:'230,220,180' }
+};
+(function(){
+  var box = $('#gProc');
+  CP.forEach(function(p){ box.insertAdjacentHTML('beforeend', '<button type="button" class="chip" data-p="' + p.id + '" aria-pressed="' + (p.id === cert.proc) + '">' + p.n + ' · ' + p.s + '</button>'); });
+  function pick(sel, b){ $$(sel + ' .chip').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); }
+  $('#gMode').addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; cert.mode = b.dataset.m; pick('#gMode', b); $('#gSumBox').classList.toggle('hidden', cert.mode !== 'sum'); $('#gProcBox').classList.toggle('hidden', cert.mode !== 'proc'); drawCert(); });
+  $('#gSum').addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; cert.sum = +b.dataset.v; $('#gSumOwn').value = ''; pick('#gSum', b); drawCert(); });
+  $('#gSumOwn').addEventListener('input', function(){ var v = Math.round(+this.value); if (v >= 500 && v <= 100000) { cert.sum = v; pick('#gSum', null); drawCert(); } });
+  box.addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; cert.proc = b.dataset.p; pick('#gProc', b); drawCert(); });
+  $('#gWish').addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; cert.wish = b.textContent; $('#gWishOwn').value = ''; pick('#gWish', b); drawCert(); });
+  $('#gWishOwn').addEventListener('input', function(){ var v = this.value.trim(); if (v) { cert.wish = v; pick('#gWish', null); } drawCert(); });
+  $('#gTheme').addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; cert.theme = b.dataset.t; pick('#gTheme', b); drawCert(); });
+  ['#gTo', '#gFrom'].forEach(function(s){ $(s).addEventListener('input', drawCert); });
+  $('#gDl').addEventListener('click', function(){
+    var c = $('#cert');
+    c.toBlob(function(blob){ var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'sertifikat-do-murashek.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); }, 3000); }, 'image/png');
+  });
+})();
+function spaced(x, text, px, py, sp, align){
+  var w = 0, i; for (i = 0; i < text.length; i++) w += x.measureText(text[i]).width + (i < text.length - 1 ? sp : 0);
+  var cx = align === 'center' ? px - w / 2 : align === 'right' ? px - w : px;
+  for (i = 0; i < text.length; i++) { x.fillText(text[i], cx, py); cx += x.measureText(text[i]).width + sp; }
+  return w;
+}
+function rr(x, a, b, w, h, r){ x.beginPath(); x.moveTo(a + r, b); x.arcTo(a + w, b, a + w, b + h, r); x.arcTo(a + w, b + h, a, b + h, r); x.arcTo(a, b + h, a, b, r); x.arcTo(a, b, a + w, b, r); x.closePath(); }
+function wrapText(x, text, maxW){
+  var words = text.split(' '), lines = [], cur = '';
+  words.forEach(function(w){ var t = cur ? cur + ' ' + w : w; if (x.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t; });
+  if (cur) lines.push(cur); return lines;
+}
+function drawCert(){
+  var c = $('#cert'), x = c.getContext('2d'), W = 1200, H = 750, t = TH[cert.theme];
+  x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+  var g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, t.bg); g.addColorStop(1, t.bg2);
+  x.clearRect(0, 0, W, H); x.fillStyle = g; rr(x, 0, 0, W, H, 34); x.fill();
+  // мурашки: справа их больше, как будто бегут по коже
+  for (var row = 0, yy = 30; yy < H - 20; yy += 15, row++) for (var xx = 470 + (row % 2) * 7.5; xx < W - 20; xx += 15) {
+    var k = (xx - 470) / (W - 490), a = Math.pow(k, 1.6) * (.55 + .45 * Math.sin(yy / 47 + xx / 90)); if (a < .06) continue;
+    x.fillStyle = 'rgba(' + t.sh + ',' + (.45 * a) + ')'; x.beginPath(); x.arc(xx + 1, yy + 1.4, 2.4, 0, 6.2832); x.fill();
+    x.fillStyle = 'rgba(' + t.hi + ',' + (.5 * a) + ')'; x.beginPath(); x.arc(xx - .6, yy - .7, 1.9, 0, 6.2832); x.fill();
+  }
+  x.strokeStyle = t.line; x.lineWidth = 1.5; rr(x, 28, 28, W - 56, H - 56, 22); x.stroke();
+  // монограмма
+  x.fillStyle = t.ink; x.font = '400 168px "Playfair Display", Georgia, serif';
+  var mw = x.measureText('ДМ').width; x.fillText('ДМ', 72, 214);
+  x.fillStyle = g; x.fillRect(64, 148, mw + 16, 34);
+  x.fillStyle = t.ink; x.font = '300 21px Onest, sans-serif'; spaced(x, 'ДО МУРАШЕК', 72 + mw / 2, 173, 7, 'center');
+  // шапка справа
+  x.fillStyle = t.acc; x.font = '500 17px Onest, sans-serif'; spaced(x, 'ПОДАРОЧНЫЙ СЕРТИФИКАТ', W - 76, 96, 4.5, 'right');
+  x.fillStyle = t.soft; x.font = '300 17px Onest, sans-serif'; x.textAlign = 'right'; x.fillText('№ ________', W - 76, 128); x.textAlign = 'left';
+  // номинал или процедура
+  x.fillStyle = t.ink;
+  if (cert.mode === 'sum') {
+    x.font = '400 150px "Playfair Display", Georgia, serif';
+    x.fillText(fmt(cert.sum).replace(/ ₽$/, '').replace(/ /g, ' '), 66, 408);
+    var vw = x.measureText(fmt(cert.sum).replace(/ ₽$/, '').replace(/ /g, ' ')).width;
+    x.font = '300 64px Onest, sans-serif'; x.fillStyle = t.acc; x.fillText('₽', 66 + vw + 22, 404);
+  } else {
+    var p = CP.filter(function(q){ return q.id === cert.proc; })[0];
+    x.font = '400 66px "Playfair Display", Georgia, serif';
+    var ls = wrapText(x, p.n, 1000).slice(0, 2), y0 = ls.length > 1 ? 330 : 380;
+    ls.forEach(function(l, i){ x.fillText(l, 66, y0 + i * 78); });
+  }
+  // кому / от кого
+  var to = $('#gTo').value.trim(), from = $('#gFrom').value.trim();
+  x.font = '400 15px Onest, sans-serif'; x.fillStyle = t.acc; spaced(x, 'ДЛЯ', 72, 488, 3, 'left'); spaced(x, 'ОТ', 620, 488, 3, 'left');
+  x.font = '300 36px Onest, sans-serif'; x.fillStyle = t.ink;
+  x.fillText(to || '______________', 72, 532); x.fillText(from || '______________', 620, 532);
+  // пожелание
+  x.font = 'italic 400 44px "Playfair Display", Georgia, serif'; x.fillStyle = t.acc;
+  x.fillText(wrapText(x, cert.wish, 1040)[0], 70, 612);
+  // подвал
+  x.strokeStyle = t.line; x.lineWidth = 1; x.beginPath(); x.moveTo(72, 646); x.lineTo(W - 72, 646); x.stroke();
+  x.font = '300 17px Onest, sans-serif'; x.fillStyle = t.soft;
+  x.fillText('Одинцово, Берёзовая ул., 6, корп. 1  ·  +7 903 100-28-62  ·  ежедневно 10:00–22:00', 72, 682);
+  x.font = '400 12.5px Onest, sans-serif'; x.textAlign = 'right'; x.globalAlpha = .75;
+  x.fillText('эскиз · демо-версия — Денис Стрепенюк, +7 977 393-80-33', W - 72, 706);
+  x.globalAlpha = 1; x.textAlign = 'left';
+  // заказ в WhatsApp
+  var what = cert.mode === 'sum' ? 'на ' + fmt(cert.sum).replace(/ /g, ' ') : 'на процедуру «' + CP.filter(function(q){ return q.id === cert.proc; })[0].n + '»';
+  $('#gOrder').href = wa('Здравствуйте! Хочу подарочный сертификат «ДО Мурашек» ' + what + '.' + (to ? '\nДля: ' + to : '') + (from ? '\nОт: ' + from : '') + '\nПожелание: «' + cert.wish + '»\nКак можно оплатить и забрать?');
+}
+drawCert();
+if (document.fonts) Promise.all([
+  document.fonts.load('400 168px "Playfair Display"'), document.fonts.load('italic 400 44px "Playfair Display"'),
+  document.fonts.load('300 21px Onest'), document.fonts.load('500 17px Onest')
+]).then(drawCert, drawCert);
+</script>
+</body>
+</html>
